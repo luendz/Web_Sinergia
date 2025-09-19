@@ -139,13 +139,34 @@
                 </div>
 
                 <!-- Links (desktop) -->
-                <nav class="hidden md:flex space-x-14 font-medium font-semibold text-white">
-                    <a href="#inicio" class="hover:text-primary-300">Inicio</a>
-                    <a href="#nosotros" class="hover:text-primary-300">Nosotros</a>
-                    <a href="#programas" class="hover:text-primary-300">Programas</a>
-                    <a href="#memorias" class="hover:text-primary-300">Memorias</a>
-                    <a href="#contacto" class="hover:text-primary-300">Contacto</a>
-                </nav>
+                <div class="hidden md:flex space-x-14 font-medium font-semibold text-white">
+                    <a href="#inicio" class="relative group">
+                        Inicio
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#nosotros" class="relative group">
+                        Nosotros
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#programas" class="relative group">
+                        Programas
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#memorias" class="relative group">
+                        Memorias
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contacto" class="relative group">
+                        Contacto
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+
 
                 <!-- Botón extra (desktop) -->
                 <div class="hidden md:flex">
@@ -746,7 +767,8 @@
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4">Contacto</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><i class="fa-solid fa-location-dot mr-2 text-primary-500"></i> PARCELA F-4, SECTOR EL OLIVAR</li>
+                    <li><i class="fa-solid fa-location-dot mr-2 text-primary-500"></i> PARCELA F-4, SECTOR EL OLIVAR
+                    </li>
                     <li><i class="fa-solid fa-phone mr-2 text-primary-500"></i> 01 4680405</li>
                     <li><i class="fa-solid fa-mobile-screen-button mr-2 text-primary-500"></i> (+51) 998-705-600</li>
                     <li><i class="fa-solid fa-envelope mr-2 text-primary-500"></i> info@sinergiainfancia.org</li>
