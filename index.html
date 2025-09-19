@@ -48,9 +48,6 @@
         body {
             font-family: "Plus Jakarta Sans", sans-serif !important;
             font-size: 17px;
-            /* font-weight: 400;
-            line-height: 1.8;*/
-            /*background-image: url('https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536203473_1084570510467816_7647775995373046571_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHkiRBdLLcIQQ830Lz9rgtdGM0s9WKGbg4YzSz1YoZuDjoiBjjV8DfI5IXR5zuyDnq7ncaJnDcivWvlmWIIC8Mw&_nc_ohc=jgbEqaov21sQ7kNvwFtiz5Z&_nc_oc=AdnCArXJGu-5OSuy90RgwsblUS8_UIDp88VfXMeIPxlaQLKGAUlgUC9B2yarH4DnDJo&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=2jl0x5oJEgy4Ep9-gtV1tA&oh=00_Afa06wKbhQc1KIt5XwBOD9zRbe3G1j4PoaS22b5NRCcwNA&oe=68D2D272');*/
         }
 
         @keyframes fadeInUp {
@@ -124,128 +121,118 @@
 <body class="overflow-x-hidden">
 
     <!-- Header -->
-    <header class="fixed top-5 left-0 w-full z-50 ">
+    <header class="fixed top-5 left-0 w-full z-50">
         <div class="w-[95%] mx-auto flex justify-between items-center h-20 rounded-lg bg-primary-700 backdrop-blur-md">
-            <nav class="w-full">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between items-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center">
 
-                        <!-- Logo -->
-                        <div class="flex-shrink-0">
-                            <a href="#inicio">
-                                <img src="src/sinergia-por-la-infancia.png" alt="Logo" class="h-24">
-                            </a>
-                        </div>
-
-                        <!-- Links (desktop) -->
-                        <div class="hidden md:flex space-x-14 font-medium font-semibold text-white">
-                            <a href="#inicio" class="relative group">
-                                Inicio
-                                <span
-                                    class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-                            </a>
-                            <a href="#nosotros" class="relative group">
-                                Nosotros
-                                <span
-                                    class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-                            </a>
-                            <a href="#programas" class="relative group">
-                                Programas
-                                <span
-                                    class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-                            </a>
-                            <a href="#memorias" class="relative group">
-                                Memorias
-                                <span
-                                    class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-                            </a>
-                            <a href="#contacto" class="relative group">
-                                Contacto
-                                <span
-                                    class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-                            </a>
-                        </div>
-
-
-                        <!-- Botón extra -->
-                        <div class="hidden md:flex">
-                            <a href="#donaciones"
-                                class="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-gray-800 transition">
-                                Donar
-                            </a>
-                        </div>
-
-                        <!-- Botón hamburguesa (móvil) -->
-                        <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
-                            <i class="fa-solid fa-bars"></i>
-                        </button>
-                    </div>
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#inicio">
+                        <img src="src/sinergia-por-la-infancia.png" alt="Logo" class="h-24">
+                    </a>
                 </div>
 
-                <!-- Menú móvil -->
-                <div id="mobile-menu"
-                    class="hidden flex-col bg-primary-700 text-white text-lg space-y-4 py-6 px-6 md:hidden transition-all duration-500">
+                <!-- Links (desktop) -->
+                <nav class="hidden md:flex space-x-14 font-medium font-semibold text-white">
                     <a href="#inicio" class="hover:text-primary-300">Inicio</a>
                     <a href="#nosotros" class="hover:text-primary-300">Nosotros</a>
                     <a href="#programas" class="hover:text-primary-300">Programas</a>
-                    <a href="#memorias" class="hover:text-primary-300">Galería</a>
+                    <a href="#memorias" class="hover:text-primary-300">Memorias</a>
                     <a href="#contacto" class="hover:text-primary-300">Contacto</a>
+                </nav>
+
+                <!-- Botón extra (desktop) -->
+                <div class="hidden md:flex">
                     <a href="#donaciones"
-                        class="mt-4 px-5 py-2 bg-primary-600 rounded-full hover:bg-primary-500 text-center">Donar</a>
+                        class="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-gray-800 transition">
+                        Donar
+                    </a>
                 </div>
 
-            </nav>
+                <!-- Botón hamburguesa (móvil) -->
+                <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none z-50 relative">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
+
+        <!-- Overlay + Menú móvil -->
+        <div id="mobile-overlay" class="hidden fixed inset-0 bg-black/50 z-40"></div>
+
+        <nav id="mobile-menu"
+            class="hidden fixed inset-0 backdrop-blur-md text-white flex flex-col items-center justify-center space-y-8 text-2xl z-50">
+            <a href="#inicio" class="hover:text-primary-300">Inicio</a>
+            <a href="#nosotros" class="hover:text-primary-300">Nosotros</a>
+            <a href="#programas" class="hover:text-primary-300">Programas</a>
+            <a href="#memorias" class="hover:text-primary-300">Memorias</a>
+            <a href="#contacto" class="hover:text-primary-300">Contacto</a>
+            <a href="#donaciones"
+                class="px-6 py-3 bg-primary-600 text-hite rounded-full font-bold hover:bg-primary-100 transition">
+                Donar
+            </a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="inicio"
         class="min-h-screen hero-bg flex items-center justify-center text-white text-center relative overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto px-6">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up drop-shadow-2xl">Somos Sinergia</h1>
-            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up opacity-90 drop-shadow-lg">Casa de Acogida "Rayitos de
-                Luz" - Brindando amor, protección y oportunidades a niños en situación de calleee</p>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28">
+
+            <!-- Título -->
+            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-snug sm:leading-tight">
+                Somos Sinergia
+            </h1>
+
+            <!-- Subtítulo -->
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 opacity-90 drop-shadow-lg">
+                Casa de Acogida "Rayitos de Luz" – Brindando amor, protección y oportunidades a niños en situación de
+                calle.
+            </p>
+
+            <!-- Botón CTA -->
             <a href="#donaciones"
-                class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-fade-in-up animate-float">
+                class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                 Ayúdanos a Ayudar
             </a>
 
             <!-- Stats -->
-            <div class="grid grid-cols-3 gap-6 mt-12">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <h3 class="text-3xl font-bold counter" data-target="19">0</h3>
+                    <h3 class="text-2xl sm:text-3xl font-bold counter" data-target="19">0</h3>
                     <p class="text-sm opacity-80">Años de experiencia</p>
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <h3 class="text-3xl font-bold counter" data-target="4">0</h3>
+                    <h3 class="text-2xl sm:text-3xl font-bold counter" data-target="4">0</h3>
                     <p class="text-sm opacity-80">Programas activos</p>
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <h3 class="text-3xl font-bold counter" data-target="2005">0</h3>
-                    <p class="text-sm opacity-80">Año de fundación</p>
+                    <h3 class="text-2xl sm:text-3xl font-bold counter" data-target="2005">0</h3>
+                    <p class="text-sm opacity-80">Fundación</p>
                 </div>
             </div>
         </div>
 
         <!-- Floating elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-primary-600 bg-opacity-20 rounded-full animate-float"></div>
-        <div class="absolute bottom-20 right-10 w-32 h-32 bg-secondary-500 bg-opacity-20 rounded-full animate-float"
+        <div
+            class="absolute top-10 left-4 w-12 h-12 sm:w-20 sm:h-20 bg-primary-600 bg-opacity-20 rounded-full animate-float">
+        </div>
+        <div class="absolute bottom-16 right-4 w-20 h-20 sm:w-32 sm:h-32 bg-secondary-500 bg-opacity-20 rounded-full animate-float"
             style="animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-secondary-600 bg-opacity-20 rounded-full animate-float"
+        <div class="absolute top-1/2 left-1/4 w-10 h-10 sm:w-16 sm:h-16 bg-secondary-600 bg-opacity-20 rounded-full animate-float"
             style="animation-delay: 2s;"></div>
-
     </section>
 
+
     <!-- Nosotros -->
-    <section class="w-full hero-bg-nosotros mb-16 py-4" id="nosotros">
+    <section id="nosotros" class="w-full hero-bg-nosotros mb-16 py-12 sm:py-16">
 
-        <div class="w-[50%] mx-auto  grid md:grid-cols-2 gap-8">
+        <div class="w-[90%] sm:w-[80%] lg:w-[50%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <!-- Columna izquierda (sticky) -->
-            <div class="md:sticky md:top-32 self-start mt-32">
-                <div class=" bg-primary-700 shadow-md p-16">
-                    <h2 class="text-3xl font-bold mb-4 text-white">¿Quiénes Somos?</h2>
-                    <p class="text-white">
+            <!-- Columna izquierda (sticky solo en desktop) -->
+            <div class="md:sticky md:top-32 self-start">
+                <div class="bg-primary-700 shadow-md p-6 sm:p-10 rounded-xl text-center md:text-left">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-white">¿Quiénes Somos?</h2>
+                    <p class="text-white text-base sm:text-lg leading-relaxed">
                         Somos una organización de impacto social positivo, creada el 03 de junio del 2005,
                         para ofrecer protección, atención y oportunidades a niños, niñas, adolescentes y jóvenes
                         en situación de calle en Lima y Callao.
@@ -253,179 +240,169 @@
                 </div>
             </div>
 
-            <!-- Columna derecha (scroll normal) -->
-            <div class="space-y-8 mt-32">
+            <!-- Columna derecha (cards en scroll normal) -->
+            <div class="space-y-6 sm:space-y-8">
 
                 <!-- Historia -->
                 <div
-                    class="bg-primary-600 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal">
-                    <h3 class="text-xl font-semibold mb-2">Nuestra Historia</h3>
-                    <p> El 01 de octubre del 2005, abrimos por primera vez las puertas de nuestra Casa de Acogida
+                    class="bg-primary-600 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Nuestra Historia</h3>
+                    <p class="text-sm sm:text-base leading-relaxed">
+                        El 01 de octubre del 2005, abrimos por primera vez las puertas de nuestra Casa de Acogida
                         <strong>“Rayitos de Luz”</strong>, donde brindamos atención residencial e integral a niños,
-                        niñas
-                        y adolescentes en situación de calle. Trabajamos para devolverles lo que la vida les ha
-                        arrebatado:
-                        un hogar, una oportunidad, una razón para creer en el futuro.
+                        niñas y adolescentes en situación de calle.
                     </p>
                 </div>
 
                 <!-- Misión -->
                 <div
-                    class="bg-primary-700 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal delay-200">
-                    <h3 class="text-xl font-semibold mb-2">Nuestra Misión</h3>
-                    <p>Acompañar y brindar atención integral a niños, niñas, adolescentes y jóvenes en situación de
-                        calle de manera personalizada en un ambiente familiar, brindándoles herramientas para hacerlos
-                        protagonistas de su desarrollo personal y social, que les permita alcanzar una vida digna,
-                        saludable
-                        y
-                        autónoma.</p>
+                    class="bg-primary-700 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal delay-200">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Nuestra Misión</h3>
+                    <p class="text-sm sm:text-base leading-relaxed">
+                        Acompañar y brindar atención integral a niños, niñas, adolescentes y jóvenes en situación de
+                        calle de manera personalizada en un ambiente familiar.
+                    </p>
                 </div>
 
                 <!-- Visión -->
                 <div
-                    class="bg-primary-600 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal delay-400">
-                    <h3 class="text-xl font-semibold mb-2">Nuestra Visión</h3>
-                    <p>Al 2030 Sinergia por la Infancia es reconocida por contribuir a la mejora integral de las
-                        condiciones de vida de niños, niñas, adolescentes y jóvenes en situación de calle, propiciando
-                        propuestas de
-                        solución desde la prevención, desarrollo integral y la incidencia pública y social.</p>
+                    class="bg-primary-600 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal delay-400">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Nuestra Visión</h3>
+                    <p class="text-sm sm:text-base leading-relaxed">
+                        Al 2030 Sinergia por la Infancia es reconocida por contribuir a la mejora integral de las
+                        condiciones de vida de niños, niñas, adolescentes y jóvenes en situación de calle.
+                    </p>
                 </div>
 
                 <!-- Valores -->
                 <div
-                    class="bg-primary-700 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal delay-600">
-                    <h3 class="text-xl font-semibold mb-2">Nuestros Valores</h3>
-                    <ul class="space-y-4">
+                    class="bg-primary-700 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal delay-600">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-4">Nuestros Valores</h3>
+                    <ul class="space-y-3 sm:space-y-4 text-sm sm:text-base">
                         <li class="flex items-start">
-                            <span class="mr-3 text-black text-xl">
-                                <i class="fa-solid fa-heart"></i>
-                            </span>
+                            <i class="fa-solid fa-heart mr-3 text-black text-lg sm:text-xl"></i>
                             <div><strong>Amor incondicional:</strong> Cada niño merece ser amado y valorado</div>
                         </li>
-
                         <li class="flex items-start">
-                            <span class="mr-3 text-black text-xl">
-                                <i class="fa-solid fa-book"></i>
-                            </span>
-                            <div><strong>Responsabilidad:</strong> Impulsamos el desarrollo de personas íntegras,
-                                fomentando
-                                el compromiso con sus acciones y decisiones</div>
+                            <i class="fa-solid fa-book mr-3 text-black text-lg sm:text-xl"></i>
+                            <div><strong>Responsabilidad:</strong> Impulsamos el desarrollo de personas íntegras</div>
                         </li>
-
                         <li class="flex items-start">
-                            <span class="mr-3 text-black text-xl">
-                                <i class="fa-solid fa-handshake"></i>
-                            </span>
+                            <i class="fa-solid fa-handshake mr-3 text-black text-lg sm:text-xl"></i>
                             <div><strong>Respeto y dignidad:</strong> Tratamos a cada niño con el respeto que merece
                             </div>
                         </li>
-
                         <li class="flex items-start">
-                            <span class="mr-3 text-black text-xl">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </span>
+                            <i class="fa-solid fa-magnifying-glass mr-3 text-black text-lg sm:text-xl"></i>
                             <div><strong>Transparencia:</strong> Manejamos los recursos con total transparencia</div>
                         </li>
                     </ul>
                 </div>
+
             </div>
-
         </div>
-
     </section>
 
+
     <!-- Programas -->
-    <section id="programas" class="py-24 bg-white">
-        <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-16 mt-32">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestros Programas</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">
+    <section id="programas" class="py-16 sm:py-24 bg-white">
+
+        <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-12 sm:mb-16 mt-20 sm:mt-32">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Nuestros Programas</h2>
+            <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
                 Desarrollamos iniciativas que buscan transformar vidas, brindar oportunidades y acompañar
                 a niños y adolescentes en situación de vulnerabilidad.
             </p>
         </div>
 
         <!-- Grid de programas -->
-        <div class="w-[90%] lg:w-[75%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="w-[90%] lg:w-[75%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
 
             <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
                   hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal">
-                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
-                    bg-primary-100 text-primary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
+                    bg-primary-100 text-primary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
                     <i class="fa-solid fa-house-chimney"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-3">Casa de Acogida</h3>
-                <p class="text-gray-600">
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">Casa de Acogida</h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                     Brindamos atención residencial integral a niños y adolescentes en situación de calle,
                     ofreciéndoles un hogar seguro y oportunidades de desarrollo.
                 </p>
             </div>
 
             <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
                   hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-200">
-                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
-                    bg-secondary-100 text-secondary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
+                    bg-secondary-100 text-secondary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
                     <i class="fa-solid fa-hand-holding-heart"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-3">Apoyo Psicosocial</h3>
-                <p class="text-gray-600">
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">Apoyo Psicosocial</h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                     Acompañamiento psicológico y social para la recuperación emocional,
                     fomentando la resiliencia y el desarrollo personal.
                 </p>
             </div>
 
             <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
                   hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-400">
-                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
-                    bg-primary-100 text-primary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
+                    bg-primary-100 text-primary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-3">Educación y Formación</h3>
-                <p class="text-gray-600">
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">Educación y Formación</h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                     Programas educativos y de capacitación que buscan fortalecer competencias académicas,
                     técnicas y sociales para un futuro con más oportunidades.
                 </p>
             </div>
 
             <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
                   hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-600">
-                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
-                    bg-secondary-100 text-secondary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
+                    bg-secondary-100 text-secondary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
                     <i class="fa-solid fa-people-group"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-3">Reinserción Familiar</h3>
-                <p class="text-gray-600">
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">Reinserción Familiar</h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                     Promovemos la integración familiar y social de los beneficiarios,
                     siempre que existan condiciones seguras y saludables.
                 </p>
             </div>
 
             <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
                   hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-800">
-                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
-                    bg-primary-100 text-primary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
+                    bg-primary-100 text-primary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
                     <i class="fa-solid fa-handshake-angle"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-3">Voluntariado</h3>
-                <p class="text-gray-600">
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">Voluntariado</h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                     Espacios para que personas comprometidas aporten su tiempo y habilidades
                     en beneficio de los niños y adolescentes atendidos.
                 </p>
             </div>
 
             <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
                   hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-1000">
-                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
-                    bg-secondary-100 text-secondary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                <div
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
+                    bg-secondary-100 text-secondary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
                     <i class="fa-solid fa-seedling"></i>
                 </div>
-                <h3 class="text-xl font-semibold mb-3">Prevención y Desarrollo</h3>
-                <p class="text-gray-600">
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">Prevención y Desarrollo</h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
                     Iniciativas preventivas y proyectos de desarrollo comunitario
                     que buscan reducir la vulnerabilidad social desde la raíz.
                 </p>
@@ -434,90 +411,97 @@
         </div>
     </section>
 
+
     <!-- Galería -->
-    <section id="memorias" class="py-24 bg-gray-50">
-        <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-16 mt-32">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4">Galería de Memorias</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">
-                memorias que reflejan nuestro compromiso con los niños, niñas y adolescentes.
+    <section id="memorias" class="py-16 sm:py-24 bg-gray-100">
+        <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-12 sm:mb-16 mt-20 sm:mt-32">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Galería de Memorias</h2>
+            <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                Momentos que reflejan nuestro compromiso con los niños, niñas y adolescentes.
             </p>
         </div>
 
         <!-- Grid tipo Masonry -->
-        <div class="w-[90%] lg:w-[75%] mx-auto columns-2 md:columns-3 gap-4 space-y-4 p-4">
-            <div class="relative group cursor-pointer" onclick="openModal(0)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536256395_1084554830469384_3435702969404665342_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyQcNqYB_u9AlSBLDv79wvtWzq28h9F861bOrbyH0Xzv6YBTyPG1Rz4NYhaHeGY6U30w3soPLle92FDLx-oAC6&_nc_ohc=KoQHXf3ZgTcQ7kNvwG4-JIK&_nc_oc=AdkFikVhRR71aDhLeuHRewwV2irAKtcjiueTrDVUf4POdGuL7Pc-_EvKVpW983PtKYs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=qSW3keh6kqoWd6ijXO_NBQ&oh=00_AfZ67irNFIMr8JUl5Fp2sYO3QnmO-JSAxuetqBcem94ypA&oe=68D24BFD"
-                    alt="Galería 1" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
-                <div
-                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
-                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
-                </div>
-            </div>
-            <div class="relative group cursor-pointer" onclick="openModal(1)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/537120534_1084554697136064_7418234147846771955_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFE-QMpeMikeH90FhXHXDiiUeUSZTaBthNR5RJlNoG2E7RmJYzVFhWDHv5khysfLuxycqPEVO16QDAJeaEwm5VI&_nc_ohc=42XLv6HRp0sQ7kNvwE99BrL&_nc_oc=Admytg_eo4dAbN8U_LvVqs3sm6Ahp9v8LsXq8zDo88psXFM0W5Wdj_iP7zJW1vaCAnw&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5biMF1I9cMJ2pT9fISr8JQ&oh=00_AfanM3IeMFffR5-4Xc1A8lWAh0AzjItqrHq0Wt1C9oRG-g&oe=68D257F1"
-                    alt="Galería 2" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
-                <div
-                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
-                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
-                </div>
-            </div>
-            <div class="relative group cursor-pointer" onclick="openModal(2)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/534998815_1084553143802886_6295208137673115145_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEJwbRVDnnmaMdt3mLagf59aJEW4mm3DUJokRbiabcNQhmyN0JnOx0dafRrzjl9YC8d-tP1L4JDEuXh3A9hl-l9&_nc_ohc=mOK4ozZU-ksQ7kNvwGHSPMj&_nc_oc=AdmnTH_xtmyUQGPBc5zgkJ8DA_q-BFVatQKW-K4UE5HU_xsYslJIP_5MM0pO1xexjAY&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=ICQ4nURr8RFaV57IL2WL2w&oh=00_AfaT7dTaXQNvt5Xqm2d6Qf4ML4BFDsrQeSNkDQlHfUoUkQ&oe=68D27B7B"
-                    alt="Galería 3" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
-                <div
-                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
-                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
-                </div>
-            </div>
-            <!-- Agregar más imágenes según sea necesario -->
-        </div>
-        <!-- Grid tipo Masonry -->
-        <div class="w-[90%] lg:w-[75%] mx-auto columns-2 md:columns-3 gap-4 space-y-4 p-4">
-            <div class="relative group cursor-pointer" onclick="openModal(0)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwE1PdUd&_nc_oc=AdnpICYFyAooD9CTWyAgncnmZbdBAOEYg_UezjiZ_NrCZ6Neb07TbOUXJVtUumPgQ_0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8pSKef6UsKefewagcft97A&oh=00_AfaDfOCmGJy2V20QO7APT-IuUPe6o60Hy-OwqiugrxCEKA&oe=68D2687E"
-                    alt="Galería 1" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
-                <div
-                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
-                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
-                </div>
-            </div>
-            <div class="relative group cursor-pointer" onclick="openModal(1)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/480567739_951720190419516_8801074296394988890_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEh0LAkmZYS_MYDxDil_9WGwA43HB4_n_3ADjccHj-f_StwDSdPBxyzpFBF58RzFrfc6pbe5kMlaw6MzUgDpsQi&_nc_ohc=Uc0oJOplM2wQ7kNvwHl_sCs&_nc_oc=AdmWTSg-vCL5MurIkBqE0PePqG5DXBj-tLK5VAMxZGeV8StQ6OG2B2UjfLAwqfhyHWs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=oipIQCfWzpu7n3Yzy44t5A&oh=00_AfasI9qh2H1KCwb9OYnj2NCISIF9f-47Q7LHAwXMtEPsLA&oe=68D26EC1"
-                    alt="Galería 2" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
-                <div
-                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
-                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
-                </div>
-            </div>
-            <div class="relative group cursor-pointer" onclick="openModal(2)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535227181_1084554890469378_4983454511817861917_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyGCsOl_MV1eQyP_aUySHrb9nYDmRonjhv2dgOZGieOCmjFbiJJxyblstBldP-MyqNMVzrI2OI30ofBoyZ_AlC&_nc_ohc=Dw4BniXOja4Q7kNvwGbLYNH&_nc_oc=Adk5rRa8W0Hf6ZZRxZUiJUP897LrKlOdGQ3nI7x3YHDqzqzZuUY1gcR8niEf3MH5S2I&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5D7tQEKFpjFnP1633AgMIw&oh=00_AfaOhH6j55IWDK9n2QlCz8qR2rc2AyHzWFqnTCZVtxtoxg&oe=68D273E6"
-                    alt="Galería 3" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
-                <div
-                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
-                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
-                </div>
-            </div>
-            <!-- Agregar más imágenes según sea necesario -->
-        </div>
+        <div class="w-[90%] lg:w-[75%] mx-auto columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
 
+            <!-- Imagen 1 -->
+            <div class="relative group cursor-pointer" onclick="openModal(0)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwEygve8&_nc_oc=AdnZtHqC7oM37KAWNmpFyWnaQ-hkMeF16xe30-CAyZJ_kOJUYKFSzATZ26tQMjT1QVA&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=sPDzxHc6RZlJBWOAcn20VA&oh=00_AfYW4__ocg4uhZ1xslSAxktSymMBVoFaKmW5jlnLumAC8A&oe=68D381BE"
+                    alt="Galería 1"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-60">
+            </div>
+
+            <!-- Imagen 2 -->
+            <div class="relative group cursor-pointer" onclick="openModal(1)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/482349455_965315762393292_8549175120606786634_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG5o6gJjWbaEMXsvAZwc8PQEMeuQToKZdcQx65BOgpl12z2BLYBbTSTyMVzUlvy0qNg137QPwUnwPWzq1lkktFJ&_nc_ohc=fyJ63fylYNUQ7kNvwHE1xFg&_nc_oc=Adn0UOj6YT7qPY2507vV0QlLqqsl5pUKZ0NpC5PqabfaTaUDAz7zrjWGpwe-2F8UaRo&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=MRUblANM2yjsan8i8I25SA&oh=00_AfZVY5FlhEylSFnw-hnON9o7WVtn_Z48Fwix22spYvS3Yg&oe=68D3A46F"
+                    alt="Galería 2"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-80">
+            </div>
+
+            <!-- Imagen 3 -->
+            <div class="relative group cursor-pointer" onclick="openModal(2)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/481706382_965315912393277_3105124696562702293_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEIVyOJlTb4lWiNaMl_kUctP0FS5SiA42M_QVLlKIDjYw8cM9vii2v3WL5yGXG8NMt0JFHvUw3W94a8lC6Zonm6&_nc_ohc=OHUasbL9utEQ7kNvwEGjWIm&_nc_oc=AdmYqY-pDZPjHd_ztMrqwUToksXZx_Oy1tdSNk62-wwbuf3qjTujVcNMRlbvrodIBKU&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=2Gba4hSBgRlqdCpzduvItA&oh=00_AfYwWEGJJLf2WqVkYVLsy9n8n8mJdj1m1RzZYA4PoEymqA&oe=68D399F0"
+                    alt="Galería 3"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-72">
+            </div>
+
+            <!-- Imagen 4 -->
+            <div class="relative group cursor-pointer" onclick="openModal(3)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535195550_1084554597136074_8237346260479836184_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGLOxYJxKtlVl3awBsbfAMzUGn3RxjEptNQafdHGMSm05wQ3-OiDEYo_wK6f3upNw8uft5VwVTxBCLt_5CKDbqu&_nc_ohc=K5Eu07MUPK8Q7kNvwEuIWY9&_nc_oc=AdkGcLoPr7NWqIxCQWq_to8xLgkKhlYEMKQVbcCv8UU8A-bdul5aWZe2WTkJ7Tk6luk&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8v9DU8fXtmmBGL4lnHchtA&oh=00_AfYQnDM7IMUriX0hL7CLc9XTCVga6G5Sv6Zg2RgaCZLOLA&oe=68D396F8"
+                    alt="Galería 4"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-96">
+            </div>
+
+            <!-- Imagen 5 -->
+            <div class="relative group cursor-pointer" onclick="openModal(4)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/483536853_966850348906500_4801953846974499289_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE1OCKVNQ-fSKP3iRXJnGNe2ZQjQiHrTJrZlCNCIetMmphSU4T6nTRomH-Tx8Wk0ua11AXV-mid81dC07p7cIa6&_nc_ohc=AUH72RithnsQ7kNvwFfg_i7&_nc_oc=AdmfrZwW9q4ZHjrJVwiNIOSe5f2VHVEANnpKcfzWCozhvfwLB1SjSpo0DPSTchmFJVE&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=2Vu-CWxU_zIVOORhgqHv2w&oh=00_AfahS-H018pdz1gM81kBPczu24sh_8wZCdZOZIqznTPXhQ&oe=68D3825F"
+                    alt="Galería 5"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-64">
+            </div>
+
+            <!-- Imagen 6 -->
+            <div class="relative group cursor-pointer" onclick="openModal(5)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536105016_1084554457136088_2913267862110025140_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGiCP-hSNcJIn9yKOpLFO6wG7TWq59LOKwbtNarn0s4rENCDhTK6WR3japuwU2Dc7PW63H64-UwwQJL5yrFxNtR&_nc_ohc=D8ZthWBlRbIQ7kNvwH2IBZW&_nc_oc=AdnMb5OAman_zXOwx-b9xlU6PwLWtDVHfENKijXbdz9MB6ZxY7rBWxjziGduLxiWNVM&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=_cofFseYslwxPJ5Vpkn-mA&oh=00_AfbnbrrJRZmfbh5dfZMxO4Gu7AnWHtkT93XPCchEpbFKfw&oe=68D381AC"
+                    alt="Galería 6"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-80">
+            </div>
+
+            <!-- Imagen 7 -->
+            <div class="relative group cursor-pointer" onclick="openModal(6)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/534998815_1084553143802886_6295208137673115145_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEJwbRVDnnmaMdt3mLagf59aJEW4mm3DUJokRbiabcNQhmyN0JnOx0dafRrzjl9YC8d-tP1L4JDEuXh3A9hl-l9&_nc_ohc=mOK4ozZU-ksQ7kNvwEpJuSX&_nc_oc=AdlxNPSW7ozGQgWMOOqeGdp_Rl-qAs1XuUzJMPDFUT77wz6VxbqzEWX_zuefyKnwlGw&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=LNlLX3mz-qTqjRU2EYj27Q&oh=00_AfaPm-5vrQbt-UkFNv1ZzOosPUc6kKlizIG70ZXJwGF-ZA&oe=68D394BB"
+                    alt="Galería 7"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-72">
+            </div>
+
+            <!-- Imagen 8 -->
+            <div class="relative group cursor-pointer" onclick="openModal(7)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535129458_1084551937136340_4210952467735567833_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEe-mJzC8j_e9bDnufb83wkuOXLXIkI25C45ctciQjbkBbbrQ-2kxOeQSB28A_UHKtjnXCRfJaK3922RSxFzliE&_nc_ohc=DAi9f5IDVuEQ7kNvwFoyiKi&_nc_oc=AdnpE4TOrVmG7C_VeHOmCAqVAzA8ZzRZg-YFEMrq9V-njjGt1AjL9CmDHdFis5JHEXQ&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=UFua1JGgfMMaSioEh0ZG9g&oh=00_Afa4A9Z7Yn3crC9cTjtY-ndy7F5dkDACnBNVGv-cy7bdtA&oe=68D3A90C"
+                    alt="Galería 8"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-96">
+            </div>
+
+        </div>
     </section>
 
     <!-- Modal de galería -->
-    <div id="galleryModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center">
+    <div id="galleryModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4">
         <!-- Botón cerrar -->
-        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-primary-400">
+        <button onclick="closeModal()"
+            class="absolute top-4 right-4 text-white text-2xl sm:text-3xl hover:text-primary-400">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
         <!-- Imagen -->
         <img id="modalImage" src="" alt="Imagen ampliada"
-            class="max-h-[80vh] max-w-[90%] rounded-lg shadow-xl transition">
+            class="max-h-[70vh] sm:max-h-[80vh] max-w-full sm:max-w-[90%] rounded-lg shadow-xl object-contain">
 
         <!-- Controles -->
-        <button onclick="prevImage()" class="absolute left-6 text-white text-4xl hover:text-primary-400">
+        <button onclick="prevImage()"
+            class="absolute left-3 sm:left-6 text-white text-2xl sm:text-4xl hover:text-primary-400">
             <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <button onclick="nextImage()" class="absolute right-6 text-white text-4xl hover:text-primary-400">
+        <button onclick="nextImage()"
+            class="absolute right-3 sm:right-6 text-white text-2xl sm:text-4xl hover:text-primary-400">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
@@ -539,7 +523,7 @@
     </div>
 
     <!-- Donaciones -->
-    <section id="donaciones" class="py-24 bg-gradient-to-br from-primary-600 to-secondary-600 text-white">
+    <section id="donaciones" class="py-16 sm:py-24 bg-white">
 
         <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-16 mt-32">
             <h2 class="text-4xl font-bold mb-4">Haz la Diferencia</h2>
@@ -552,7 +536,7 @@
 
             <!-- Transferencia bancaria -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
                 <img src="src/bcp-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
                 <h3 class="text-xl font-semibold mb-4 text-center">Transferencia Bancaria</h3>
                 <p class="text-sm text-center">BCP - SINERGIA POR LA INFANCIA</p>
@@ -562,7 +546,7 @@
                     <p><strong>RUC:</strong> 20511555991</p>
                 </div>
                 <button onclick="copyText('00219400189511800493')"
-                    class="mt-6 w-full bg-secondary-800 rounded-lg py-2 hover:bg-secondary-800/70">
+                    class="mt-4 bg-secondary-800 text-white px-4 py-2 rounded-lg text-sm sm:text-base hover:bg-primary-700 transition">
                     <i class="fa-solid fa-copy mr-2"></i>
                     Copiar CCI
                 </button>
@@ -570,7 +554,7 @@
 
             <!-- Yape -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
                 <img src="src/yape-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
                 <h3 class="text-xl font-semibold mb-4 text-center">Yape</h3>
                 <p class="text-center text-sm">Número: <strong>998705600</strong></p>
@@ -580,31 +564,16 @@
                         alt="QR Yape" onclick="openQR('Yape - 998705600', this.src)">
                     <p class="mt-2 text-sm">Escanea o copia el número</p>
                     <button onclick="copyText('998705600')"
-                        class="mt-6 w-full bg-secondary-700 rounded-lg py-2 hover:bg-secondary-700/70 ">
+                        class="mt-6 w-full bg-secondary-700 rounded-lg py-2 hover:bg-secondary-700/70 text-white">
                         <i class="fa-solid fa-copy mr-2"></i>
                         Copiar Número
                     </button>
                 </div>
             </div>
 
-            <!-- Plin -->
-            <!--<div
-                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-                <img src="https://www.bbva.pe/content/dam/public-web/peru/images/promo-sliders/promo-plin.png"
-                    class="w-20 mx-auto mb-4" alt="Plin">
-                <h3 class="text-xl font-bold mb-4 text-center">Plin</h3>
-                <p class="text-center text-sm">Número: <strong>998705600</strong></p>
-                <div class="text-center mt-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"
-                        class="w-24 h-24 mx-auto bg-white p-2 rounded cursor-pointer hover:scale-110 transition"
-                        alt="QR Plin" onclick="openQR('Plin - 998705600', this.src)">
-                    <p class="mt-2 text-sm">Escanea o copia el número</p>
-                </div>
-            </div>-->
-
             <!-- Donaciones con PayPal -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 text-center">
+                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
                 <img src="src/paypal-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
                 <h3 class="text-xl font-semibold mb-4">PayPal</h3>
                 <p class="mb-4 text">
@@ -613,7 +582,7 @@
                 <div class="text-center mt-4">
                     <a href="https://www.paypal.com/donate/?hosted_button_id=ZRC2G8KXZPKDU" target="_blank"
                         class="w-full inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg shadow-md transition">
-                        <div class="w-full">
+                        <div class="w-full ">
                             <i class="fa-brands fa-paypal mr-2"></i>
                             Donar con PayPal
                         </div>
@@ -624,7 +593,7 @@
 
             <!-- Donaciones en especie -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
                 <div class="text-5xl mb-4 text-center"><i class="fa-solid fa-gifts"></i></div>
                 <h3 class="text-xl font-bold mb-4 text-center">En Especie</h3>
                 <p class="mb-3 text-sm">Puedes donar directamente artículos:</p>
@@ -662,7 +631,7 @@
     </div>
 
     <!-- Contacto -->
-    <section id="contacto" class="py-24 bg-gray-50">
+    <section id="contacto" class="py-24 bg-gray-100">
         <div class="w-[90%] lg:w-[75%] mx-auto mt-32">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Contáctanos</h2>
 
@@ -671,8 +640,8 @@
                 <!-- Información -->
                 <div class="space-y-8">
                     <div>
-                        <h3 class="text-2xl font-bold text-primary-700 mb-4 flex items-center">
-                            <i class="fa-solid fa-circle-info mr-3 text-primary-700"></i> Información
+                        <h3 class="text-2xl font-bold text-black mb-4 flex items-center">
+                            <i class="fa-solid fa-circle-info mr-3"></i> Información
                         </h3>
                         <ul class="space-y-3 text-gray-700">
                             <li><i class="fa-solid fa-location-dot mr-2 text-primary-700"></i> PARCELA F-4 SUB LOTE A-2
@@ -686,8 +655,8 @@
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-bold text-primary-700 mb-4 flex items-center">
-                            <i class="fa-solid fa-share-nodes mr-3 text-primary-700"></i> Redes Sociales
+                        <h3 class="text-2xl font-bold text-black mb-4 flex items-center">
+                            <i class="fa-solid fa-share-nodes mr-3 text-black"></i> Redes Sociales
                         </h3>
                         <div class="flex space-x-4">
                             <a href="https://www.facebook.com/sinergiaporlainfanciaperu" target="_blank"
@@ -702,7 +671,7 @@
 
                 <!-- Formulario -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <h3 class="text-2xl font-bold text-primary-700 mb-6 flex items-center">
+                    <h3 class="text-2xl font-bold text-black mb-6 flex items-center">
                         <i class="fa-solid fa-paper-plane mr-3"></i> Envíanos un Mensaje
                     </h3>
 
@@ -747,7 +716,7 @@
 
             <!-- Logo + frase -->
             <div class="space-y-4">
-                <img src="src/sinergia-por-la-infancia.png" alt="Logo" class="h-20">
+                <img src="src/sinergia-por-la-infancia.png" alt="Logo" class="h-16 md:h-24">
                 <p class="text-sm">
                     Desde 2005 brindando amor, protección y oportunidades a niños, niñas y adolescentes en situación de
                     calle.
@@ -802,16 +771,35 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-btn');
-        const mobileNav = document.getElementById('mobile-menu');
 
-        menuToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('hidden');
+        // Toggle nav con overlay y scroll to top
+        const menuBtn = document.getElementById("menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const overlay = document.getElementById("mobile-overlay");
+
+        menuBtn.addEventListener("click", () => {
+            // Scroll al inicio en móvil
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
+            // Mostrar/ocultar menú
+            mobileMenu.classList.toggle("hidden");
+            overlay.classList.toggle("hidden");
 
             const icon = menuBtn.querySelector("i");
             icon.classList.toggle("fa-bars");
             icon.classList.toggle("fa-xmark");
+        });
+
+        // Cerrar menú al hacer clic en un enlace o en el overlay
+        document.querySelectorAll("#mobile-menu a, #mobile-overlay").forEach(el => {
+            el.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+                overlay.classList.add("hidden");
+
+                const icon = menuBtn.querySelector("i");
+                icon.classList.add("fa-bars");
+                icon.classList.remove("fa-xmark");
+            });
         });
 
         // Smooth scrolling for navigation links
