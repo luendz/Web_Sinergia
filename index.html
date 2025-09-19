@@ -36,8 +36,14 @@
                         background: '#fef7ff',
                         paragraph: '#6b7280'
                     },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(100,100,100,1)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 20px 10px rgba(255,255,255,0)' },
+                        },
+                    },
                     animation: {
-                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
                         'float': 'float 2s ease-in-out infinite',
                     }
                 }
@@ -191,7 +197,7 @@
 
             <!-- Botón CTA -->
             <a href="#donaciones"
-                class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-full text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-pulse-glow">
                 Ayúdanos a Ayudar
             </a>
 
@@ -646,7 +652,7 @@
                         <ul class="space-y-3 text-gray-700">
                             <li><i class="fa-solid fa-location-dot mr-2 text-primary-700"></i> PARCELA F-4 SUB LOTE A-2
                                 NRO. S/N SECTOR EL OLIVAR</li>
-                            <li><i class="fa-solid fa-phone mr-2 text-primary-700"></i> (+51) 01-234-5678</li>
+                            <li><i class="fa-solid fa-phone mr-2 text-primary-700"></i>01 4680405</li>
                             <li><i class="fa-solid fa-mobile-screen-button mr-2 text-primary-700"></i> (+51) 998-705-600
                             </li>
                             <li><i class="fa-solid fa-envelope mr-2 text-primary-700"></i> info@sinergiainfancia.org
@@ -740,9 +746,8 @@
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4">Contacto</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><i class="fa-solid fa-location-dot mr-2 text-primary-500"></i> PARCELA F-4, SECTOR EL OLIVAR
-                    </li>
-                    <li><i class="fa-solid fa-phone mr-2 text-primary-500"></i> (+51) 01-234-5678</li>
+                    <li><i class="fa-solid fa-location-dot mr-2 text-primary-500"></i> PARCELA F-4, SECTOR EL OLIVAR</li>
+                    <li><i class="fa-solid fa-phone mr-2 text-primary-500"></i> 01 4680405</li>
                     <li><i class="fa-solid fa-mobile-screen-button mr-2 text-primary-500"></i> (+51) 998-705-600</li>
                     <li><i class="fa-solid fa-envelope mr-2 text-primary-500"></i> info@sinergiainfancia.org</li>
                 </ul>
