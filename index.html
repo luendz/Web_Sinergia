@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sinergia por la Infancia - Brindamos amor, protección y oportunidades a niños en situación de calle desde 2005.">
     <title>Sinergia por la infancia</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="src/sinergia-por-la-infancia.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
         rel="stylesheet">
@@ -93,7 +97,7 @@
             position: absolute;
             inset: 0;
             background: inherit;
-            filter: blur(8px);
+            filter: blur(3px);
             /* transform: scale(1.1);
             */
             z-index: 0;
@@ -148,25 +152,24 @@
                         </div>
 
                         <!-- Botón hamburguesa (móvil) -->
-                        <div class="md:hidden">
-                            <button id="menu-btn" class="text-gray-700 hover:text-black focus:outline-none">
-                                ☰
-                            </button>
-                        </div>
+                        <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
                     </div>
                 </div>
 
                 <!-- Menú móvil -->
-                <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
-                    <a href="#inicio" class="block py-2 border-b">Inicio</a>
-                    <a href="#nosotros" class="block py-2 border-b">Nosotros</a>
-                    <a href="#programas" class="block py-2 border-b">Programas</a>
-                    <a href="#galeria" class="block py-2 border-b">Galeria</a>
-                    <a href="#contacto" class="block py-2 border-b">Contacto</a>
-                    <a href="#donaciones" class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
-                        Donar
-                    </a>
+                <div id="mobile-menu" class="hidden flex-col bg-primary-700 text-white text-lg space-y-4 py-6 px-6 md:hidden 
+         transition-all duration-500">
+                    <a href="#inicio" class="hover:text-primary-300">Inicio</a>
+                    <a href="#nosotros" class="hover:text-primary-300">Nosotros</a>
+                    <a href="#programas" class="hover:text-primary-300">Programas</a>
+                    <a href="#galeria" class="hover:text-primary-300">Galería</a>
+                    <a href="#contacto" class="hover:text-primary-300">Contacto</a>
+                    <a href="#donaciones"
+                        class="mt-4 px-5 py-2 bg-primary-600 rounded-full hover:bg-primary-500 text-center">Donar</a>
                 </div>
+
             </nav>
         </div>
     </header>
@@ -182,23 +185,23 @@
                 class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-fade-in-up animate-float">
                 Ayúdanos a Ayudar
             </a>
-            <div class="">
-                <div class="stat-item">
-                    <h3>19+</h3>
-                    <p>Años de experiencia</p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-6 mt-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <h3 class="text-3xl font-bold counter" data-target="19">0</h3>
+                    <p class="text-sm opacity-80">Años de experiencia</p>
                 </div>
-                <div class="stat-item">
-                    <h3>4</h3>
-                    <p>Programas activos</p>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <h3 class="text-3xl font-bold counter" data-target="4">0</h3>
+                    <p class="text-sm opacity-80">Programas activos</p>
                 </div>
-                <div class="stat-item">
-                    <h3>2005</h3>
-                    <p>Año de fundación</p>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                    <h3 class="text-3xl font-bold counter" data-target="2005">0</h3>
+                    <p class="text-sm opacity-80">Fundación</p>
                 </div>
             </div>
         </div>
-
-
 
         <!-- Floating elements -->
         <div class="absolute top-20 left-10 w-20 h-20 bg-primary-600 bg-opacity-20 rounded-full animate-float"></div>
@@ -210,80 +213,92 @@
     </section>
 
     <!-- Nosotros -->
-    <section class="w-[60%] mx-auto py-16 grid md:grid-cols-2 gap-8 bg-white/50 hero-bg-nosotros" id="nosotros">
+    <section class="w-full hero-bg-nosotros" id="nosotros">
 
-        <!-- Columna izquierda (sticky) -->
-        <div class="md:sticky md:top-32 self-start mt-32">
-            <div class=" bg-primary-700 shadow-md p-16">
-                <h2 class="text-3xl font-bold mb-4 text-white">¿Quiénes Somos?</h2>
-                <p class="text-white">
-                    Somos una organización de impacto social positivo, creada el 03 de junio del 2005,
-                    para ofrecer protección, atención y oportunidades a niños, niñas, adolescentes y jóvenes
-                    en situación de calle en Lima y Callao.
-                </p>
+        <div class="w-[50%] mx-auto  grid md:grid-cols-2 gap-8">
+
+            <!-- Columna izquierda (sticky) -->
+            <div class="md:sticky md:top-32 self-start mt-32">
+                <div class=" bg-primary-700 shadow-md p-16">
+                    <h2 class="text-3xl font-bold mb-4 text-white">¿Quiénes Somos?</h2>
+                    <p class="text-white">
+                        Somos una organización de impacto social positivo, creada el 03 de junio del 2005,
+                        para ofrecer protección, atención y oportunidades a niños, niñas, adolescentes y jóvenes
+                        en situación de calle en Lima y Callao.
+                    </p>
+                </div>
             </div>
+
+            <!-- Columna derecha (scroll normal) -->
+            <div class="space-y-8 mt-32">
+                <div class="bg-primary-600 shadow-md p-16 text-white">
+                    <h3 class="text-xl font-semibold mb-2">Nuestra Historia</h3>
+                    <p> El 01 de octubre del 2005, abrimos por primera vez las puertas de nuestra Casa de Acogida
+                        <strong>“Rayitos de Luz”</strong>, donde brindamos atención residencial e integral a niños,
+                        niñas
+                        y adolescentes en situación de calle. Trabajamos para devolverles lo que la vida les ha
+                        arrebatado:
+                        un hogar, una oportunidad, una razón para creer en el futuro.
+                    </p>
+                </div>
+                <div class="bg-primary-700 shadow-md p-16 text-white">
+                    <h3 class="text-xl font-semibold mb-2">Nuestra Misión</h3>
+                    <p>Acompañar y brindar atención integral a niños, niñas, adolescentes y jóvenes en situación de
+                        calle de manera personalizada en un ambiente familiar, brindándoles herramientas para hacerlos
+                        protagonistas de su desarrollo personal y social, que les permita alcanzar una vida digna,
+                        saludable
+                        y
+                        autónoma.</p>
+                </div>
+                <div class="bg-primary-600 shadow-md p-16 text-white">
+                    <h3 class="text-xl font-semibold mb-2">Nuestra Visión</h3>
+                    <p>Al 2030 Sinergia por la Infancia es reconocida por contribuir a la mejora integral de las
+                        condiciones de vida de niños, niñas, adolescentes y jóvenes en situación de calle, propiciando
+                        propuestas de
+                        solución desde la prevención, desarrollo integral y la incidencia pública y social.</p>
+                </div>
+                <div class="bg-primary-700 shadow-md p-16 text-white">
+                    <h3 class="text-xl font-semibold mb-2">Nuestros Valores</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-black text-xl">
+                                <i class="fa-solid fa-heart"></i>
+                            </span>
+                            <div><strong>Amor incondicional:</strong> Cada niño merece ser amado y valorado</div>
+                        </li>
+
+                        <li class="flex items-start">
+                            <span class="mr-3 text-black text-xl">
+                                <i class="fa-solid fa-book"></i>
+                            </span>
+                            <div><strong>Responsabilidad:</strong> Impulsamos el desarrollo de personas íntegras,
+                                fomentando
+                                el compromiso con sus acciones y decisiones</div>
+                        </li>
+
+                        <li class="flex items-start">
+                            <span class="mr-3 text-black text-xl">
+                                <i class="fa-solid fa-handshake"></i>
+                            </span>
+                            <div><strong>Respeto y dignidad:</strong> Tratamos a cada niño con el respeto que merece
+                            </div>
+                        </li>
+
+                        <li class="flex items-start">
+                            <span class="mr-3 text-black text-xl">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <div><strong>Transparencia:</strong> Manejamos los recursos con total transparencia</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Columna derecha (scroll normal) -->
-        <div class="space-y-8 mt-32">
-            <div class="bg-primary-600 shadow-md p-16 text-white">
-                <h3 class="text-xl font-semibold mb-2">Nuestra Historia</h3>
-                <p> El 01 de octubre del 2005, abrimos por primera vez las puertas de nuestra Casa de Acogida
-                    <strong>“Rayitos de Luz”</strong>, donde brindamos atención residencial e integral a niños, niñas
-                    y adolescentes en situación de calle. Trabajamos para devolverles lo que la vida les ha arrebatado:
-                    un hogar, una oportunidad, una razón para creer en el futuro.
-                </p>
-            </div>
-            <div class="bg-primary-700 shadow-md p-16 text-white">
-                <h3 class="text-xl font-semibold mb-2">Nuestra Misión</h3>
-                <p>Acompañar y brindar atención integral a niños, niñas, adolescentes y jóvenes en situación de
-                    calle de manera personalizada en un ambiente familiar, brindándoles herramientas para hacerlos
-                    protagonistas de su desarrollo personal y social, que les permita alcanzar una vida digna, saludable
-                    y
-                    autónoma.</p>
-            </div>
-            <div class="bg-primary-600 shadow-md p-16 text-white">
-                <h3 class="text-xl font-semibold mb-2">Nuestra Visión</h3>
-                <p>Al 2030 Sinergia por la Infancia es reconocida por contribuir a la mejora integral de las
-                    condiciones de vida de niños, niñas, adolescentes y jóvenes en situación de calle, propiciando
-                    propuestas de
-                    solución desde la prevención, desarrollo integral y la incidencia pública y social.</p>
-            </div>
-            <div class="bg-primary-700 shadow-md p-16 text-white">
-                <h3 class="text-xl font-semibold mb-2">Nuestros Valores</h3>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <span class="mr-3 text-black text-xl">
-                            <i class="fa-solid fa-heart"></i>
-                        </span>
-                        <div><strong>Amor incondicional:</strong> Cada niño merece ser amado y valorado</div>
-                    </li>
-
-                    <li class="flex items-start">
-                        <span class="mr-3 text-black text-xl">
-                            <i class="fa-solid fa-book"></i>
-                        </span>
-                        <div><strong>Responsabilidad:</strong> Impulsamos el desarrollo de personas íntegras, fomentando
-                            el compromiso con sus acciones y decisiones</div>
-                    </li>
-
-                    <li class="flex items-start">
-                        <span class="mr-3 text-black text-xl">
-                            <i class="fa-solid fa-handshake"></i>
-                        </span>
-                        <div><strong>Respeto y dignidad:</strong> Tratamos a cada niño con el respeto que merece</div>
-                    </li>
-
-                    <li class="flex items-start">
-                        <span class="mr-3 text-black text-xl">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </span>
-                        <div><strong>Transparencia:</strong> Manejamos los recursos con total transparencia</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </section>
+
+
 
     <!-- Programas -->
     <section id="programas" class="py-20 bg-gray-50  w-[60%] mx-auto">
@@ -702,6 +717,10 @@
 
         menuToggle.addEventListener('click', () => {
             mobileNav.classList.toggle('hidden');
+
+            const icon = menuBtn.querySelector("i");
+            icon.classList.toggle("fa-bars");
+            icon.classList.toggle("fa-xmark");
         });
 
         // Smooth scrolling for navigation links
@@ -719,6 +738,7 @@
                 mobileNav.classList.add('hidden');
             });
         });
+
 
         // Header background change on scroll
         window.addEventListener('scroll', () => {
@@ -746,6 +766,24 @@
             // Prevent body scroll when modal is open
             document.body.style.overflow = 'hidden';
         }
+
+        // Animación de contadores
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute("data-target");
+                const count = +counter.innerText;
+                const increment = target / 100;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 40);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
