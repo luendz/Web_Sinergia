@@ -231,7 +231,10 @@
 
             <!-- Columna derecha (scroll normal) -->
             <div class="space-y-8 mt-32">
-                <div class="bg-primary-600 shadow-md p-16 text-white">
+
+                <!-- Historia -->
+                <div
+                    class="bg-primary-600 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal">
                     <h3 class="text-xl font-semibold mb-2">Nuestra Historia</h3>
                     <p> El 01 de octubre del 2005, abrimos por primera vez las puertas de nuestra Casa de Acogida
                         <strong>“Rayitos de Luz”</strong>, donde brindamos atención residencial e integral a niños,
@@ -241,7 +244,10 @@
                         un hogar, una oportunidad, una razón para creer en el futuro.
                     </p>
                 </div>
-                <div class="bg-primary-700 shadow-md p-16 text-white">
+
+                <!-- Misión -->
+                <div
+                    class="bg-primary-700 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal delay-200">
                     <h3 class="text-xl font-semibold mb-2">Nuestra Misión</h3>
                     <p>Acompañar y brindar atención integral a niños, niñas, adolescentes y jóvenes en situación de
                         calle de manera personalizada en un ambiente familiar, brindándoles herramientas para hacerlos
@@ -250,14 +256,20 @@
                         y
                         autónoma.</p>
                 </div>
-                <div class="bg-primary-600 shadow-md p-16 text-white">
+
+                <!-- Visión -->
+                <div
+                    class="bg-primary-600 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal delay-400">
                     <h3 class="text-xl font-semibold mb-2">Nuestra Visión</h3>
                     <p>Al 2030 Sinergia por la Infancia es reconocida por contribuir a la mejora integral de las
                         condiciones de vida de niños, niñas, adolescentes y jóvenes en situación de calle, propiciando
                         propuestas de
                         solución desde la prevención, desarrollo integral y la incidencia pública y social.</p>
                 </div>
-                <div class="bg-primary-700 shadow-md p-16 text-white">
+
+                <!-- Valores -->
+                <div
+                    class="bg-primary-700 shadow-md p-16 text-white transform translate-y-6 transition-all duration-700 reveal delay-600">
                     <h3 class="text-xl font-semibold mb-2">Nuestros Valores</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start">
@@ -784,6 +796,26 @@
             };
             updateCount();
         });
+
+        // Animación de entrada al hacer scroll
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+
+            revealElements.forEach((el) => {
+                const boxTop = el.getBoundingClientRect().top;
+
+                if (boxTop < triggerBottom) {
+                    el.classList.add("opacity-100", "translate-y-0");
+                    el.classList.remove("opacity-0", "translate-y-6");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll(); // ejecutar al cargar
+
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
