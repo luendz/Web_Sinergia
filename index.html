@@ -24,11 +24,14 @@
                             50: '#fdf2f8',
                             500: '#00ADEF',
                             600: '#ED5AA0',
-                            700: '#00ADEF'
+                            700: '#00ADEF',
+                            800: '#25D366'
                         },
                         secondary: {
                             500: '#00ADEF',
-                            600: '#ED5AA0'
+                            600: '#ED5AA0',
+                            700: '#991BA7',
+                            800: '#183BBB'
                         },
                         background: '#fef7ff',
                         paragraph: '#6b7280'
@@ -139,7 +142,7 @@
                             <a href="#inicio" class="hover:text-black transition text-white">Inicio</a>
                             <a href="#nosotros" class="hover:text-black transition text-white">Nosotros</a>
                             <a href="#programas" class="hover:text-black transition text-white">Programas</a>
-                            <a href="#galeria" class="hover:text-black transition text-white">Galeria</a>
+                            <a href="#memorias" class="hover:text-black transition text-white">Memorias</a>
                             <a href="#contacto" class="hover:text-black transition text-white">Contacto</a>
                         </div>
 
@@ -164,7 +167,7 @@
                     <a href="#inicio" class="hover:text-primary-300">Inicio</a>
                     <a href="#nosotros" class="hover:text-primary-300">Nosotros</a>
                     <a href="#programas" class="hover:text-primary-300">Programas</a>
-                    <a href="#galeria" class="hover:text-primary-300">Galería</a>
+                    <a href="#memorias" class="hover:text-primary-300">Galería</a>
                     <a href="#contacto" class="hover:text-primary-300">Contacto</a>
                     <a href="#donaciones"
                         class="mt-4 px-5 py-2 bg-primary-600 rounded-full hover:bg-primary-500 text-center">Donar</a>
@@ -198,7 +201,7 @@
                 </div>
                 <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
                     <h3 class="text-3xl font-bold counter" data-target="2005">0</h3>
-                    <p class="text-sm opacity-80">Fundación</p>
+                    <p class="text-sm opacity-80">Año de fundación</p>
                 </div>
             </div>
         </div>
@@ -213,7 +216,7 @@
     </section>
 
     <!-- Nosotros -->
-    <section class="w-full hero-bg-nosotros" id="nosotros">
+    <section class="w-full hero-bg-nosotros mb-16 py-4" id="nosotros">
 
         <div class="w-[50%] mx-auto  grid md:grid-cols-2 gap-8">
 
@@ -310,202 +313,193 @@
 
     </section>
 
-
-
     <!-- Programas -->
-    <section id="programas" class="py-20 bg-gray-50  w-[60%] mx-auto">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Nuestras Programas</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div
-                    class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-primary-500 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="text-4xl mb-4">🏠</div>
-                    <h3 class="text-xl font-bold text-primary-500 mb-4">Acogimiento Residencial</h3>
-                    <div class="space-y-2 text-paragraph">
-                        <p>
-                            Brindamos acogimiento residencial, integral, profesional y personalizado a niños y
-                            adolescentes en situación de calle, dentro de un entorno familiar, afectivo, con especial
-                            respeto a su dignidad y protagonismo para el pleno desarrollo de su autonomía.
-                        </p>
-                    </div>
-                </div>
+    <section id="programas" class="py-24 bg-white mt-32">
+        <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestros Programas</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Desarrollamos iniciativas que buscan transformar vidas, brindar oportunidades y acompañar
+                a niños y adolescentes en situación de vulnerabilidad.
+            </p>
+        </div>
 
-                <div
-                    class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-secondary-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="text-4xl mb-4">👨‍👩‍👧‍👦</div>
-                    <h3 class="text-xl font-bold text-secondary-600 mb-4">Prevención con Familias</h3>
-                    <p class="text-paragraph">
-                        Atención a niños, niñas y adolescentes en su ámbito familiar, favoreciendo el acceso a una
-                        adecuada educación, salud y distintos servicios de cuidado para su desarrollo integral y el
-                        fortalecimiento de los factores de protección que los alejen de los peligros de la calle.
-                    </p>
-                </div>
+        <!-- Grid de programas -->
+        <div class="w-[90%] lg:w-[75%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-                <div
-                    class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-primary-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="text-4xl mb-4">🤝</div>
-                    <h3 class="text-xl font-bold text-primary-600 mb-4">Acompañamiento en Calle</h3>
-                    <p class="text-paragraph">
-                        Brindamos acompañamiento y apoyo a niños, niñas, adolescentes y jóvenes en situación de calle,
-                        propiciando el ejercicio pleno de sus derechos; la promoción de una vida saludable y el
-                        acercamiento a alternativas para la mejora de sus condiciones de vida.
-                    </p>
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal">
+                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
+                    bg-primary-100 text-primary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                    <i class="fa-solid fa-house-chimney"></i>
                 </div>
-
-                <div
-                    class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-secondary-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="text-4xl mb-4">📢</div>
-                    <h3 class="text-xl font-bold text-secondary-600 mb-4">Incidencia Política y Social</h3>
-                    <p class="text-paragraph">
-                        Impulsamos acciones de sensibilización y denuncia, que abogan por cambios en las políticas
-                        públicas para abordar la atención de las necesidades estructurales de los niños y niñas en
-                        situación de calle.
-                    </p>
-                </div>
+                <h3 class="text-xl font-semibold mb-3">Casa de Acogida</h3>
+                <p class="text-gray-600">
+                    Brindamos atención residencial integral a niños y adolescentes en situación de calle,
+                    ofreciéndoles un hogar seguro y oportunidades de desarrollo.
+                </p>
             </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-200">
+                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
+                    bg-secondary-100 text-secondary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Apoyo Psicosocial</h3>
+                <p class="text-gray-600">
+                    Acompañamiento psicológico y social para la recuperación emocional,
+                    fomentando la resiliencia y el desarrollo personal.
+                </p>
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-400">
+                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
+                    bg-primary-100 text-primary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Educación y Formación</h3>
+                <p class="text-gray-600">
+                    Programas educativos y de capacitación que buscan fortalecer competencias académicas,
+                    técnicas y sociales para un futuro con más oportunidades.
+                </p>
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-600">
+                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
+                    bg-secondary-100 text-secondary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Reinserción Familiar</h3>
+                <p class="text-gray-600">
+                    Promovemos la integración familiar y social de los beneficiarios,
+                    siempre que existan condiciones seguras y saludables.
+                </p>
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-800">
+                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
+                    bg-primary-100 text-primary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Voluntariado</h3>
+                <p class="text-gray-600">
+                    Espacios para que personas comprometidas aporten su tiempo y habilidades
+                    en beneficio de los niños y adolescentes atendidos.
+                </p>
+            </div>
+
+            <!-- Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center transform transition duration-300 
+                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-1000">
+                <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full 
+                    bg-secondary-100 text-secondary-600 text-3xl transition-transform duration-500 hover:rotate-6">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Prevención y Desarrollo</h3>
+                <p class="text-gray-600">
+                    Iniciativas preventivas y proyectos de desarrollo comunitario
+                    que buscan reducir la vulnerabilidad social desde la raíz.
+                </p>
+            </div>
+
         </div>
     </section>
-
-
-    <div class="-mt-18 sm:-mt-26">
-        <section class="bg-white p-6 ring ring-gray-950/5 sm:p-16 dark:bg-gray-950 dark:ring-white/10">
-            <h3 class="text-base/6 font-semibold text-gray-950 dark:text-white">Browse properties</h3>
-            <div
-                class="mt-6 grid grid-cols-[repeat(2,var(--size))] grid-rows-[repeat(3,var(--size))] gap-2 sm:grid-cols-[repeat(3,var(--size))] sm:grid-rows-[repeat(2,var(--size))]">
-                <div
-                    class="relative col-span-2 row-span-1 overflow-hidden rounded-t-2xl sm:col-span-1 sm:row-span-2 sm:rounded-none sm:rounded-l-2xl dark:outline dark:outline-white/10">
-                    <img alt="" class="not-sm:hidden"
-                        src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536256395_1084554830469384_3435702969404665342_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyQcNqYB_u9AlSBLDv79wvtWzq28h9F861bOrbyH0Xzv6YBTyPG1Rz4NYhaHeGY6U30w3soPLle92FDLx-oAC6&_nc_ohc=KoQHXf3ZgTcQ7kNvwG4-JIK&_nc_oc=AdkFikVhRR71aDhLeuHRewwV2irAKtcjiueTrDVUf4POdGuL7Pc-_EvKVpW983PtKYs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=qSW3keh6kqoWd6ijXO_NBQ&oh=00_AfZ67irNFIMr8JUl5Fp2sYO3QnmO-JSAxuetqBcem94ypA&oe=68D24BFD"><img
-                        alt="" class="sm:hidden"
-                        src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536256395_1084554830469384_3435702969404665342_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyQcNqYB_u9AlSBLDv79wvtWzq28h9F861bOrbyH0Xzv6YBTyPG1Rz4NYhaHeGY6U30w3soPLle92FDLx-oAC6&_nc_ohc=KoQHXf3ZgTcQ7kNvwG4-JIK&_nc_oc=AdkFikVhRR71aDhLeuHRewwV2irAKtcjiueTrDVUf4POdGuL7Pc-_EvKVpW983PtKYs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=qSW3keh6kqoWd6ijXO_NBQ&oh=00_AfZ67irNFIMr8JUl5Fp2sYO3QnmO-JSAxuetqBcem94ypA&oe=68D24BFD">
-                    <div
-                        class="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                        <span class="p-4 text-sm/5 font-semibold text-white">Treehouses</span>
-                    </div>
-                </div>
-                <div class="relative dark:outline dark:outline-white/10"><img alt=""
-                        src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/537120534_1084554697136064_7418234147846771955_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFE-QMpeMikeH90FhXHXDiiUeUSZTaBthNR5RJlNoG2E7RmJYzVFhWDHv5khysfLuxycqPEVO16QDAJeaEwm5VI&_nc_ohc=42XLv6HRp0sQ7kNvwE99BrL&_nc_oc=Admytg_eo4dAbN8U_LvVqs3sm6Ahp9v8LsXq8zDo88psXFM0W5Wdj_iP7zJW1vaCAnw&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5biMF1I9cMJ2pT9fISr8JQ&oh=00_AfanM3IeMFffR5-4Xc1A8lWAh0AzjItqrHq0Wt1C9oRG-g&oe=68D257F1">
-                    <div
-                        class="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                        <span class="p-4 text-sm/5 font-semibold text-white">Mansions</span>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden sm:rounded-tr-2xl dark:outline dark:outline-white/10"><img alt=""
-                        src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536252982_1084554833802717_7849519392017184828_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEQYpcPGge18HQgteFPKqUmFHXKiDszfMcUdcqIOzN8x0tJppxdk_78dmO_lZbuoH3YK9mz4OEFUJ8h31lAWgZn&_nc_ohc=WgSrpfWdWhwQ7kNvwGjAuWl&_nc_oc=Adk1cr_DF2DheW5ciHb7VkRmB5dBWzQG8p8ux6DTIEXzHkrMLoJ2GgD-C7ECXanCEgA&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=NU3DX2X_B2wpX87zanJneQ&oh=00_AfajvlhAMfkEhd8Omg1uXsGfbtp4jdgWm-gpZFwjyddKrA&oe=68D24B39">
-                    <div
-                        class="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                        <span class="p-4 text-sm/5 font-semibold text-white">Lakefront cottages</span>
-                    </div>
-                </div>
-                <div
-                    class="relative col-span-2 overflow-hidden rounded-b-2xl sm:rounded-bl-none dark:outline dark:outline-white/10">
-                    <img alt="" class="aspect-2/1"
-                        src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwE1PdUd&_nc_oc=AdnpICYFyAooD9CTWyAgncnmZbdBAOEYg_UezjiZ_NrCZ6Neb07TbOUXJVtUumPgQ_0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8pSKef6UsKefewagcft97A&oh=00_AfaDfOCmGJy2V20QO7APT-IuUPe6o60Hy-OwqiugrxCEKA&oe=68D2687E">
-                    <div
-                        class="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                        <span class="p-4 text-sm/5 font-semibold text-white">Designer homes</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 
     <!-- Galería -->
-    <section id="galeria" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Galería de Momentos</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="group cursor-pointer"
-                    onclick="openModal('Niños en clase - Momento de aprendizaje y concentración', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536256395_1084554830469384_3435702969404665342_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyQcNqYB_u9AlSBLDv79wvtWzq28h9F861bOrbyH0Xzv6YBTyPG1Rz4NYhaHeGY6U30w3soPLle92FDLx-oAC6&_nc_ohc=KoQHXf3ZgTcQ7kNvwG4-JIK&_nc_oc=AdkFikVhRR71aDhLeuHRewwV2irAKtcjiueTrDVUf4POdGuL7Pc-_EvKVpW983PtKYs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=qSW3keh6kqoWd6ijXO_NBQ&oh=00_AfZ67irNFIMr8JUl5Fp2sYO3QnmO-JSAxuetqBcem94ypA&oe=68D24BFD')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536256395_1084554830469384_3435702969404665342_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyQcNqYB_u9AlSBLDv79wvtWzq28h9F861bOrbyH0Xzv6YBTyPG1Rz4NYhaHeGY6U30w3soPLle92FDLx-oAC6&_nc_ohc=KoQHXf3ZgTcQ7kNvwG4-JIK&_nc_oc=AdkFikVhRR71aDhLeuHRewwV2irAKtcjiueTrDVUf4POdGuL7Pc-_EvKVpW983PtKYs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=qSW3keh6kqoWd6ijXO_NBQ&oh=00_AfZ67irNFIMr8JUl5Fp2sYO3QnmO-JSAxuetqBcem94ypA&oe=68D24BFD"
-                            alt="Niños en clase"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
+    <section id="memorias" class="py-24 bg-gray-50">
+        <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Galería de memoria</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                memorias que reflejan nuestro compromiso con los niños, niñas y adolescentes.
+            </p>
+        </div>
 
-                <div class="group cursor-pointer"
-                    onclick="openModal('Taller de arte - Creatividad sin límites', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/537120534_1084554697136064_7418234147846771955_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFE-QMpeMikeH90FhXHXDiiUeUSZTaBthNR5RJlNoG2E7RmJYzVFhWDHv5khysfLuxycqPEVO16QDAJeaEwm5VI&_nc_ohc=42XLv6HRp0sQ7kNvwE99BrL&_nc_oc=Admytg_eo4dAbN8U_LvVqs3sm6Ahp9v8LsXq8zDo88psXFM0W5Wdj_iP7zJW1vaCAnw&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5biMF1I9cMJ2pT9fISr8JQ&oh=00_AfanM3IeMFffR5-4Xc1A8lWAh0AzjItqrHq0Wt1C9oRG-g&oe=68D257F1')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/537120534_1084554697136064_7418234147846771955_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFE-QMpeMikeH90FhXHXDiiUeUSZTaBthNR5RJlNoG2E7RmJYzVFhWDHv5khysfLuxycqPEVO16QDAJeaEwm5VI&_nc_ohc=42XLv6HRp0sQ7kNvwE99BrL&_nc_oc=Admytg_eo4dAbN8U_LvVqs3sm6Ahp9v8LsXq8zDo88psXFM0W5Wdj_iP7zJW1vaCAnw&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5biMF1I9cMJ2pT9fISr8JQ&oh=00_AfanM3IeMFffR5-4Xc1A8lWAh0AzjItqrHq0Wt1C9oRG-g&oe=68D257F1"
-                            alt="Taller de arte"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer"
-                    onclick="openModal('Programas deportivas - Fomentando el trabajo en equipo', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536252982_1084554833802717_7849519392017184828_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEQYpcPGge18HQgteFPKqUmFHXKiDszfMcUdcqIOzN8x0tJppxdk_78dmO_lZbuoH3YK9mz4OEFUJ8h31lAWgZn&_nc_ohc=WgSrpfWdWhwQ7kNvwGjAuWl&_nc_oc=Adk1cr_DF2DheW5ciHb7VkRmB5dBWzQG8p8ux6DTIEXzHkrMLoJ2GgD-C7ECXanCEgA&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=NU3DX2X_B2wpX87zanJneQ&oh=00_AfajvlhAMfkEhd8Omg1uXsGfbtp4jdgWm-gpZFwjyddKrA&oe=68D24B39')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536252982_1084554833802717_7849519392017184828_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEQYpcPGge18HQgteFPKqUmFHXKiDszfMcUdcqIOzN8x0tJppxdk_78dmO_lZbuoH3YK9mz4OEFUJ8h31lAWgZn&_nc_ohc=WgSrpfWdWhwQ7kNvwGjAuWl&_nc_oc=Adk1cr_DF2DheW5ciHb7VkRmB5dBWzQG8p8ux6DTIEXzHkrMLoJ2GgD-C7ECXanCEgA&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=NU3DX2X_B2wpX87zanJneQ&oh=00_AfajvlhAMfkEhd8Omg1uXsGfbtp4jdgWm-gpZFwjyddKrA&oe=68D24B39"
-                            alt="Deportes"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer"
-                    onclick="openModal('Hora de comida - Compartiendo en familia', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/534998815_1084553143802886_6295208137673115145_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEJwbRVDnnmaMdt3mLagf59aJEW4mm3DUJokRbiabcNQhmyN0JnOx0dafRrzjl9YC8d-tP1L4JDEuXh3A9hl-l9&_nc_ohc=mOK4ozZU-ksQ7kNvwGHSPMj&_nc_oc=AdmnTH_xtmyUQGPBc5zgkJ8DA_q-BFVatQKW-K4UE5HU_xsYslJIP_5MM0pO1xexjAY&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=ICQ4nURr8RFaV57IL2WL2w&oh=00_AfaT7dTaXQNvt5Xqm2d6Qf4ML4BFDsrQeSNkDQlHfUoUkQ&oe=68D27B7B')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/534998815_1084553143802886_6295208137673115145_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEJwbRVDnnmaMdt3mLagf59aJEW4mm3DUJokRbiabcNQhmyN0JnOx0dafRrzjl9YC8d-tP1L4JDEuXh3A9hl-l9&_nc_ohc=mOK4ozZU-ksQ7kNvwGHSPMj&_nc_oc=AdmnTH_xtmyUQGPBc5zgkJ8DA_q-BFVatQKW-K4UE5HU_xsYslJIP_5MM0pO1xexjAY&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=ICQ4nURr8RFaV57IL2WL2w&oh=00_AfaT7dTaXQNvt5Xqm2d6Qf4ML4BFDsrQeSNkDQlHfUoUkQ&oe=68D27B7B"
-                            alt="Hora de comida"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer"
-                    onclick="openModal('Celebración especial - Momentos de alegría', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwE1PdUd&_nc_oc=AdnpICYFyAooD9CTWyAgncnmZbdBAOEYg_UezjiZ_NrCZ6Neb07TbOUXJVtUumPgQ_0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8pSKef6UsKefewagcft97A&oh=00_AfaDfOCmGJy2V20QO7APT-IuUPe6o60Hy-OwqiugrxCEKA&oe=68D2687E')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwE1PdUd&_nc_oc=AdnpICYFyAooD9CTWyAgncnmZbdBAOEYg_UezjiZ_NrCZ6Neb07TbOUXJVtUumPgQ_0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8pSKef6UsKefewagcft97A&oh=00_AfaDfOCmGJy2V20QO7APT-IuUPe6o60Hy-OwqiugrxCEKA&oe=68D2687E"
-                            alt="Celebraciones"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer"
-                    onclick="openModal('Tiempo de juego - Diversión y risas', 'https://sinergiaporlainfancia.org.pe/images/grupal.jpg')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://sinergiaporlainfancia.org.pe/images/grupal.jpg" alt="Tiempo de juego"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer"
-                    onclick="openModal('Taller de cocina - Aprendiendo habilidades prácticas', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/481078211_956668469924688_7911767078005926269_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGkrpFRYfawsKlt0iGnXqpLzipRBYAG3IvOKlEFgAbci5rFBWf3CJi86Zh75eU_3BwdWu_3Toii4GECKCZ-Q8bJ&_nc_ohc=LRgiFld8XIkQ7kNvwFy6BFR&_nc_oc=Adndjh5yV4PurlXgPLwmelw2q63W0NIlgnxGLr2vRMM623S-EMdT7SiCeNb9AUECi6c&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=CLSJ2D1NoIY5ZRHN5yasbA&oh=00_AfarmiT28AfIg_sh20eZW6_sABCJw4BDh91b4mfPVfvsLg&oe=68D253D4')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/481078211_956668469924688_7911767078005926269_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGkrpFRYfawsKlt0iGnXqpLzipRBYAG3IvOKlEFgAbci5rFBWf3CJi86Zh75eU_3BwdWu_3Toii4GECKCZ-Q8bJ&_nc_ohc=LRgiFld8XIkQ7kNvwFy6BFR&_nc_oc=Adndjh5yV4PurlXgPLwmelw2q63W0NIlgnxGLr2vRMM623S-EMdT7SiCeNb9AUECi6c&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=CLSJ2D1NoIY5ZRHN5yasbA&oh=00_AfarmiT28AfIg_sh20eZW6_sABCJw4BDh91b4mfPVfvsLg&oe=68D253D4"
-                            alt="Taller de cocina"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer"
-                    onclick="openModal('Graduación - Logros y nuevos comienzos', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535227181_1084554890469378_4983454511817861917_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyGCsOl_MV1eQyP_aUySHrb9nYDmRonjhv2dgOZGieOCmjFbiJJxyblstBldP-MyqNMVzrI2OI30ofBoyZ_AlC&_nc_ohc=Dw4BniXOja4Q7kNvwGbLYNH&_nc_oc=Adk5rRa8W0Hf6ZZRxZUiJUP897LrKlOdGQ3nI7x3YHDqzqzZuUY1gcR8niEf3MH5S2I&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5D7tQEKFpjFnP1633AgMIw&oh=00_AfaOhH6j55IWDK9n2QlCz8qR2rc2AyHzWFqnTCZVtxtoxg&oe=68D273E6')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535227181_1084554890469378_4983454511817861917_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyGCsOl_MV1eQyP_aUySHrb9nYDmRonjhv2dgOZGieOCmjFbiJJxyblstBldP-MyqNMVzrI2OI30ofBoyZ_AlC&_nc_ohc=Dw4BniXOja4Q7kNvwGbLYNH&_nc_oc=Adk5rRa8W0Hf6ZZRxZUiJUP897LrKlOdGQ3nI7x3YHDqzqzZuUY1gcR8niEf3MH5S2I&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5D7tQEKFpjFnP1633AgMIw&oh=00_AfaOhH6j55IWDK9n2QlCz8qR2rc2AyHzWFqnTCZVtxtoxg&oe=68D273E6"
-                            alt="Graduación"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
-                </div>
-
-                <div class="group cursor-pointer"
-                    onclick="openModal('Graduación - Logros y nuevos comienzos', 'https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/480567739_951720190419516_8801074296394988890_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEh0LAkmZYS_MYDxDil_9WGwA43HB4_n_3ADjccHj-f_StwDSdPBxyzpFBF58RzFrfc6pbe5kMlaw6MzUgDpsQi&_nc_ohc=Uc0oJOplM2wQ7kNvwHl_sCs&_nc_oc=AdmWTSg-vCL5MurIkBqE0PePqG5DXBj-tLK5VAMxZGeV8StQ6OG2B2UjfLAwqfhyHWs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=oipIQCfWzpu7n3Yzy44t5A&oh=00_AfasI9qh2H1KCwb9OYnj2NCISIF9f-47Q7LHAwXMtEPsLA&oe=68D26EC1')">
-                    <div
-                        class="aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl">
-                        <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/480567739_951720190419516_8801074296394988890_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEh0LAkmZYS_MYDxDil_9WGwA43HB4_n_3ADjccHj-f_StwDSdPBxyzpFBF58RzFrfc6pbe5kMlaw6MzUgDpsQi&_nc_ohc=Uc0oJOplM2wQ7kNvwHl_sCs&_nc_oc=AdmWTSg-vCL5MurIkBqE0PePqG5DXBj-tLK5VAMxZGeV8StQ6OG2B2UjfLAwqfhyHWs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=oipIQCfWzpu7n3Yzy44t5A&oh=00_AfasI9qh2H1KCwb9OYnj2NCISIF9f-47Q7LHAwXMtEPsLA&oe=68D26EC1"
-                            alt="Graduación"
-                            class="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300">
-                    </div>
+        <!-- Grid tipo Masonry -->
+        <div class="w-[90%] lg:w-[75%] mx-auto columns-2 md:columns-3 gap-4 space-y-4 p-4">
+            <div class="relative group cursor-pointer" onclick="openModal(0)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536256395_1084554830469384_3435702969404665342_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyQcNqYB_u9AlSBLDv79wvtWzq28h9F861bOrbyH0Xzv6YBTyPG1Rz4NYhaHeGY6U30w3soPLle92FDLx-oAC6&_nc_ohc=KoQHXf3ZgTcQ7kNvwG4-JIK&_nc_oc=AdkFikVhRR71aDhLeuHRewwV2irAKtcjiueTrDVUf4POdGuL7Pc-_EvKVpW983PtKYs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=qSW3keh6kqoWd6ijXO_NBQ&oh=00_AfZ67irNFIMr8JUl5Fp2sYO3QnmO-JSAxuetqBcem94ypA&oe=68D24BFD"
+                    alt="Galería 1" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
+                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
                 </div>
             </div>
+            <div class="relative group cursor-pointer" onclick="openModal(1)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/537120534_1084554697136064_7418234147846771955_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFE-QMpeMikeH90FhXHXDiiUeUSZTaBthNR5RJlNoG2E7RmJYzVFhWDHv5khysfLuxycqPEVO16QDAJeaEwm5VI&_nc_ohc=42XLv6HRp0sQ7kNvwE99BrL&_nc_oc=Admytg_eo4dAbN8U_LvVqs3sm6Ahp9v8LsXq8zDo88psXFM0W5Wdj_iP7zJW1vaCAnw&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5biMF1I9cMJ2pT9fISr8JQ&oh=00_AfanM3IeMFffR5-4Xc1A8lWAh0AzjItqrHq0Wt1C9oRG-g&oe=68D257F1"
+                    alt="Galería 2" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
+                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer" onclick="openModal(2)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/534998815_1084553143802886_6295208137673115145_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEJwbRVDnnmaMdt3mLagf59aJEW4mm3DUJokRbiabcNQhmyN0JnOx0dafRrzjl9YC8d-tP1L4JDEuXh3A9hl-l9&_nc_ohc=mOK4ozZU-ksQ7kNvwGHSPMj&_nc_oc=AdmnTH_xtmyUQGPBc5zgkJ8DA_q-BFVatQKW-K4UE5HU_xsYslJIP_5MM0pO1xexjAY&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=ICQ4nURr8RFaV57IL2WL2w&oh=00_AfaT7dTaXQNvt5Xqm2d6Qf4ML4BFDsrQeSNkDQlHfUoUkQ&oe=68D27B7B"
+                    alt="Galería 3" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
+                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
+                </div>
+            </div>
+            <!-- Agregar más imágenes según sea necesario -->
         </div>
+        <!-- Grid tipo Masonry -->
+        <div class="w-[90%] lg:w-[75%] mx-auto columns-2 md:columns-3 gap-4 space-y-4 p-4">
+            <div class="relative group cursor-pointer" onclick="openModal(0)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwE1PdUd&_nc_oc=AdnpICYFyAooD9CTWyAgncnmZbdBAOEYg_UezjiZ_NrCZ6Neb07TbOUXJVtUumPgQ_0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8pSKef6UsKefewagcft97A&oh=00_AfaDfOCmGJy2V20QO7APT-IuUPe6o60Hy-OwqiugrxCEKA&oe=68D2687E"
+                    alt="Galería 1" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
+                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer" onclick="openModal(1)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/480567739_951720190419516_8801074296394988890_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEh0LAkmZYS_MYDxDil_9WGwA43HB4_n_3ADjccHj-f_StwDSdPBxyzpFBF58RzFrfc6pbe5kMlaw6MzUgDpsQi&_nc_ohc=Uc0oJOplM2wQ7kNvwHl_sCs&_nc_oc=AdmWTSg-vCL5MurIkBqE0PePqG5DXBj-tLK5VAMxZGeV8StQ6OG2B2UjfLAwqfhyHWs&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=oipIQCfWzpu7n3Yzy44t5A&oh=00_AfasI9qh2H1KCwb9OYnj2NCISIF9f-47Q7LHAwXMtEPsLA&oe=68D26EC1"
+                    alt="Galería 2" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
+                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer" onclick="openModal(2)">
+                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535227181_1084554890469378_4983454511817861917_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEyGCsOl_MV1eQyP_aUySHrb9nYDmRonjhv2dgOZGieOCmjFbiJJxyblstBldP-MyqNMVzrI2OI30ofBoyZ_AlC&_nc_ohc=Dw4BniXOja4Q7kNvwGbLYNH&_nc_oc=Adk5rRa8W0Hf6ZZRxZUiJUP897LrKlOdGQ3nI7x3YHDqzqzZuUY1gcR8niEf3MH5S2I&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=5D7tQEKFpjFnP1633AgMIw&oh=00_AfaOhH6j55IWDK9n2QlCz8qR2rc2AyHzWFqnTCZVtxtoxg&oe=68D273E6"
+                    alt="Galería 3" class="rounded-lg shadow-md group-hover:scale-105 transition duration-500">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
+                    <i class="fa-solid fa-magnifying-glass text-white text-3xl"></i>
+                </div>
+            </div>
+            <!-- Agregar más imágenes según sea necesario -->
+        </div>
+
     </section>
+
+    <!-- Modal de galería -->
+    <div id="galleryModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center">
+        <!-- Botón cerrar -->
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-primary-400">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Imagen -->
+        <img id="modalImage" src="" alt="Imagen ampliada"
+            class="max-h-[80vh] max-w-[90%] rounded-lg shadow-xl transition">
+
+        <!-- Controles -->
+        <button onclick="prevImage()" class="absolute left-6 text-white text-4xl hover:text-primary-400">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="nextImage()" class="absolute right-6 text-white text-4xl hover:text-primary-400">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
 
     <!-- Modal -->
     <div id="imageModal"
@@ -524,76 +518,126 @@
     </div>
 
     <!-- Donaciones -->
-    <section id="donaciones" class="py-20 text-white bg-black">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Haz la Diferencia</h2>
-                <p class="text-xl opacity-90 max-w-3xl mx-auto">Tu donación, sin importar el monto, hace una diferencia
-                    real en la vida de nuestros niños y adolescentes.</p>
+    <section id="donaciones" class="py-24 bg-gradient-to-br from-primary-600 to-secondary-600 text-white">
+        <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Haz la Diferencia</h2>
+            <p class="text-lg opacity-90 max-w-2xl mx-auto">
+                Tu aporte transforma vidas. Elige el medio que más te acomode y súmate a nuestra misión.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 w-[90%] lg:w-[75%] mx-auto">
+
+            <!-- Transferencia bancaria -->
+            <div
+                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                <img src="src/bcp-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
+                <h3 class="text-xl font-semibold mb-4 text-center">Transferencia Bancaria</h3>
+                <p class="text-sm text-center">BCP - SINERGIA POR LA INFANCIA</p>
+                <div class="mt-4 space-y-1 text-sm">
+                    <p><strong>Cuenta:</strong> 1941895118004</p>
+                    <p><strong>CCI:</strong> 00219400189511800493</p>
+                    <p><strong>RUC:</strong> 20511555991</p>
+                </div>
+                <button onclick="copyText('00219400189511800493')"
+                    class="mt-6 w-full bg-secondary-800 rounded-lg py-2 hover:bg-secondary-800/70">
+                    <i class="fa-solid fa-copy mr-2"></i>
+                    Copiar CCI
+                </button>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div
-                    class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                    <div class="text-4xl mb-4 text-center">💳</div>
-                    <h3 class="text-xl font-bold mb-4 text-center">Transferencia Bancaria</h3>
-                    <div class="space-y-2 text-sm">
-                        <p><strong>Banco:</strong> BCP</p>
-                        <p><strong>Cuenta:</strong> 194-1895118-0-04</p>
-                        <p><strong>CCI:</strong> 00219400189511800493</p>
-                        <p><strong>Titular:</strong> SINERGIA POR LA INFANCIA</p>
-                        <p><strong>RUC:</strong> 20511555991</p>
-                    </div>
+            <!-- Yape -->
+            <div
+                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                <img src="src/yape-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
+                <h3 class="text-xl font-semibold mb-4 text-center">Yape</h3>
+                <p class="text-center text-sm">Número: <strong>998705600</strong></p>
+                <div class="text-center mt-4">
+                    <img src="src/qr-yape.jpg"
+                        class="w-32 h-32 mx-auto bg-white p-2 rounded cursor-pointer hover:scale-110 transition"
+                        alt="QR Yape" onclick="openQR('Yape - 998705600', this.src)">
+                    <p class="mt-2 text-sm">Escanea o copia el número</p>
+                    <button onclick="copyText('998705600')"
+                        class="mt-6 w-full bg-secondary-700 rounded-lg py-2 hover:bg-secondary-700/70 ">
+                        <i class="fa-solid fa-copy mr-2"></i>
+                        Copiar Número
+                    </button>
                 </div>
+            </div>
 
-                <div
-                    class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                    <div class="text-4xl mb-4 text-center">
-                        <img src="https://www.coopacsancristobal.pe/wp-content/uploads/2024/11/yape-logo-png_seeklogo-504685.png"
-                            alt="QR Yape" class="w-24 h-24 mx-auto mb-2">
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center">Yape</h3>
-                    <div class=" p-4 mb-4 text-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/256px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                            alt="QR Yape" class="w-24 h-24 mx-auto mb-2 bg-white p-2 rounded">
-                        <p class="font-bold text-sm">QR YAPE</p>
-                    </div>
-                    <p class="text-center"><strong>Número:</strong> 998705600</p>
-                    <p class="text-center">SINERGIA POR LA INFANCIA</p>
+            <!-- Plin -->
+            <!--<div
+                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                <img src="https://www.bbva.pe/content/dam/public-web/peru/images/promo-sliders/promo-plin.png"
+                    class="w-20 mx-auto mb-4" alt="Plin">
+                <h3 class="text-xl font-bold mb-4 text-center">Plin</h3>
+                <p class="text-center text-sm">Número: <strong>998705600</strong></p>
+                <div class="text-center mt-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"
+                        class="w-24 h-24 mx-auto bg-white p-2 rounded cursor-pointer hover:scale-110 transition"
+                        alt="QR Plin" onclick="openQR('Plin - 998705600', this.src)">
+                    <p class="mt-2 text-sm">Escanea o copia el número</p>
                 </div>
+            </div>-->
 
-                <div
-                    class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                    <div class="text-4xl mb-4 text-center">
-                        <img src="https://www.bbva.pe/content/dam/public-web/peru/images/promo-sliders/promo-plin.png"
-                            alt="QR Yape" class="w-24 h-24 mx-auto mb-2">
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center">Plin</h3>
-                    <div class="p-4 mb-4 text-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/256px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                            alt="QR Plin" class="w-24 h-24 mx-auto mb-2 bg-white p-2 rounded">
-                        <p class="font-bold text-sm">QR PLIN</p>
-                    </div>
-                    <p class="text-center"><strong>Número:</strong> 998705600</p>
-                    <p class="text-center">SINERGIA POR LA INFANCIA</p>
+            <!-- Donaciones con PayPal -->
+            <div
+                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 text-center">
+                <img src="src/paypal-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
+                <h3 class="text-xl font-semibold mb-4">PayPal</h3>
+                <p class="mb-4 text">
+                    Haz tu donación de forma rápida y segura usando PayPal.
+                </p>
+                <div class="text-center mt-4">
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=ZRC2G8KXZPKDU" target="_blank"
+                        class="w-full inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg shadow-md transition">
+                        <div class="w-full">
+                            <i class="fa-brands fa-paypal mr-2"></i>
+                            Donar con PayPal
+                        </div>
+                    </a>
                 </div>
+            </div>
 
-                <div
-                    class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                    <div class="text-4xl mb-4 text-center">🎁</div>
-                    <h3 class="text-xl font-bold mb-4 text-center">Donaciones en Especie</h3>
-                    <p class="mb-3">También aceptamos:</p>
-                    <ul class="space-y-1 text-sm">
-                        <li class="flex items-center"><span class="mr-2">👕</span> Ropa y zapatos</li>
-                        <li class="flex items-center"><span class="mr-2">📚</span> Útiles escolares</li>
-                        <li class="flex items-center"><span class="mr-2">🥫</span> Alimentos</li>
-                        <li class="flex items-center"><span class="mr-2">🧸</span> Juguetes y libros</li>
-                        <li class="flex items-center"><span class="mr-2">🧸</span> Otros artículos</li>
-                    </ul>
+
+            <!-- Donaciones en especie -->
+            <div
+                class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                <div class="text-5xl mb-4 text-center"><i class="fa-solid fa-gifts"></i></div>
+                <h3 class="text-xl font-bold mb-4 text-center">En Especie</h3>
+                <p class="mb-3 text-sm">Puedes donar directamente artículos:</p>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fa-solid fa-shirt mr-2"></i> Ropa y zapatos</li>
+                    <li><i class="fa-solid fa-book mr-2"></i> Útiles escolares</li>
+                    <li><i class="fa-solid fa-mug-hot mr-2"></i> Alimentos</li>
+                    <li><i class="fa-solid fa-robot mr-2"></i> Juguetes y libros</li>
+                    <li><i class="fa-solid fa-gift mr-2"></i> Otros en buen estado</li>
+                </ul>
+                <div class="text-center mt-4">
+                    <a href="https://api.whatsapp.com/send?phone=51998705600&text=Hola%2C+desear%C3%ADa+contactarme+con+Sinergia+por+la+Infancia+para+realizar+una+donación" target="_blank" rel="noopener noreferrer"
+                        class="w-full inline-flex items-center gap-2 bg-primary-800 hover:bg-primary-800/70 text-white py-2 rounded-lg shadow-md transition">
+                        <div class="w-full">
+                            <i class="fa-brands fa-whatsapp mr-2"></i>
+                            Contactar
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal QR -->
+    <div id="qrModal" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <h3 id="qrTitle" class="text-lg font-bold mb-4 text-gray-700"></h3>
+            <img id="qrImage" src="" alt="QR ampliado" class="w-64 h-64 mx-auto rounded border p-2 bg-white">
+            <button onclick="closeQR()"
+                class="mt-6 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
 
     <!-- Contacto -->
     <section id="contacto" class="py-20 bg-gray-50">
@@ -816,6 +860,24 @@
         window.addEventListener("scroll", revealOnScroll);
         revealOnScroll(); // ejecutar al cargar
 
+        // Copiar texto al portapapeles
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("✅ Copiado al portapapeles: " + text);
+            });
+        }
+
+        // Modal QR
+        function openQR(title, src) {
+            document.getElementById("qrTitle").innerText = title;
+            document.getElementById("qrImage").src = src;
+            document.getElementById("qrModal").classList.remove("hidden");
+        }
+
+        function closeQR() {
+            document.getElementById("qrModal").classList.add("hidden");
+        }
+
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
@@ -891,6 +953,48 @@
                 el.style.animationDelay = `${index * 0.5}s`;
             });
         });
+
+        // Galería
+        const images = [
+            "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwE1PdUd&_nc_oc=AdnpICYFyAooD9CTWyAgncnmZbdBAOEYg_UezjiZ_NrCZ6Neb07TbOUXJVtUumPgQ_0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8pSKef6UsKefewagcft97A&oh=00_AfaDfOCmGJy2V20QO7APT-IuUPe6o60Hy-OwqiugrxCEKA&oe=68D2687E",
+            "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536257471_1084554733802727_5113225264434408693_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEvFQaOeCT1gX8Jdf-Aa_zsWp2_rEVnlAdanb-sRWeUB6k9o1LEBMPgSu-TlNFqy0TI-FD06fLqT_WpiyDrQetX&_nc_ohc=XPYBhwfAKIgQ7kNvwGs-2xl&_nc_oc=AdkMXphVJN5bcAYdbZAPpjoAqz_OTlmh7tco7OGFaV9OagsCRle_cqhXQNOM9YrHCTE&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=_z5tC0R4OL9PiIMWS6Uwwg&oh=00_Afap0fBOzf2DeFy6Bb82HnlHYZjDJUHRNeLZ2Vw8G2jmEA&oe=68D2D472",
+            "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/537007066_1084561287135405_475052646262747417_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeHnQDeMqYBfq-O_PBfNR5kEsmJhSk9apEyyYmFKT1qkTASDCOfXBlykejrwgf4bS1ukeqKe87xEBNMF5XBX8dzJ&_nc_ohc=lcqgPCFNG6IQ7kNvwE3bKjD&_nc_oc=AdkXHhZ3xPayzvcJV-LtrT_4vFgfArpS_HdknRy7EioQtaahbZZPjfRQZeuJnRcEZ4M&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=h2s4HWtYKIPtbakoe_ouMA&oh=00_AfbuSo2mvheQa_i0CXf-kKbuOm3lGn_7MPCTkIwirAEt4A&oe=68D2D901"
+            // Agregar más si se necesitan
+        ];
+
+        let currentIndex = 0;
+
+        function openModal(index) {
+            currentIndex = index;
+            const modal = document.getElementById("galleryModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.classList.remove("hidden");
+            modalImg.src = images[currentIndex];
+        }
+
+        function closeModal() {
+            document.getElementById("galleryModal").classList.add("hidden");
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("modalImage").src = images[currentIndex];
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById("modalImage").src = images[currentIndex];
+        }
+
+        // Navegación con teclado
+        document.addEventListener("keydown", (e) => {
+            if (document.getElementById("galleryModal").classList.contains("hidden")) return;
+
+            if (e.key === "ArrowRight") nextImage();
+            if (e.key === "ArrowLeft") prevImage();
+            if (e.key === "Escape") closeModal();
+        });
+
     </script>
 </body>
 
