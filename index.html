@@ -21,30 +21,32 @@
                 extend: {
                     colors: {
                         primary: {
-                            50: '#fdf2f8',
-                            500: '#00ADEF',
-                            600: '#ED5AA0',
-                            700: '#00ADEF',
-                            800: '#25D366'
+                            500: '#0284c7', /* azul principal */
+                            600: '#0369a1', /* hover */
+                            700: '#0c4a6e'  /* fondo fuerte */
                         },
-                        secondary: {
-                            500: '#00ADEF',
-                            600: '#ED5AA0',
-                            700: '#991BA7',
-                            800: '#183BBB'
+                        accent: {
+                            500: '#ec4899', /* rosa */
+                            600: '#db2777'
                         },
-                        background: '#fef7ff',
-                        paragraph: '#6b7280'
+                        neutral: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            800: '#1f2937',
+                            900: '#111827'
+                        },
+                        paragraph: '#4b5563'
                     },
-                    keyframes: {
-                        pulseGlow: {
-                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(100,100,100,1)' },
-                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 20px 10px rgba(255,255,255,0)' },
-                        },
+                    fontSize: {
+                        'h1': '4rem',      // Hero title
+                        'h2': '2.5rem',    // Section titles
+                        'h3': '1.5rem',    // Subtitles
+                        'body': '1.125rem',// Main text
+                        'small': '0.875rem'// Secondary text
                     },
                     animation: {
-                        'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
                         'float': 'float 2s ease-in-out infinite',
+                        'pulseGlow': 'pulseGlow 2s ease-in-out infinite',
                     }
                 }
             }
@@ -53,7 +55,7 @@
     <style>
         body {
             font-family: "Plus Jakarta Sans", sans-serif !important;
-            font-size: 17px;
+            animation: scrollFade 1s ease;
         }
 
         @keyframes fadeInUp {
@@ -76,26 +78,81 @@
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-20px);
             }
         }
 
-        .gradient-bg {
-            background: linear-gradient(rgba(238, 107, 238, 0.884), rgba(16, 139, 196, 0.808))
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 10px rgba(236, 72, 153, 0.6),
+                    0 0 20px rgba(236, 72, 153, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 10px rgba(236, 72, 153, 0.9),
+                    0 0 50px rgba(236, 72, 153, 0.6);
+            }
         }
 
-        .gradient-text {
-            background: #00ADEF;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        @keyframes pulseIcon {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes heroPan {
+            from {
+                background-position: center 50%;
+            }
+
+            to {
+                background-position: center 60%;
+            }
+        }
+
+        @keyframes scrollFade {
+            from {
+                opacity: 0.9;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+        }
+
+        .icon-pulse:hover {
+            animation: pulseIcon 0.6s ease;
+        }
+
+        .animate-float-glow {
+            animation: float 2s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease forwards;
         }
 
         .hero-bg {
-            background: url('https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536257471_1084554733802727_5113225264434408693_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEvFQaOeCT1gX8Jdf-Aa_zsWp2_rEVnlAdanb-sRWeUB6k9o1LEBMPgSu-TlNFqy0TI-FD06fLqT_WpiyDrQetX&_nc_ohc=TcCe7wIQ888Q7kNvwFeKkci&_nc_oc=AdmIrXJxzS1NBb_0gwInMSzsXvfuGdJ3AdMrt4Z5hXhMFCHRVL4tyR8AlxUdJ6rn6f0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=i9VAbhmgQRq9biq0aYLTgg&oh=00_AfYWEBBXsBjTDnuAUDh-T9hvR3FDvb5_mL5hk6YeGZ-DIw&oe=68D37D32') no-repeat center center / cover;
-            background-size: cover;
-            background-position: center 50%;
+            background: url('src/fondo.jpg') no-repeat center center / cover;
             background-attachment: fixed;
+            animation: heroPan 20s infinite linear alternate;
         }
 
         .hero-bg::before {
@@ -104,15 +161,12 @@
             inset: 0;
             background: inherit;
             filter: blur(3px);
-            /* transform: scale(1.1);
-            */
             z-index: 0;
         }
 
         .hero-bg>* {
             position: relative;
             z-index: 1;
-            /* contenido encima del blur */
         }
 
         .hero-bg-nosotros {
@@ -121,10 +175,28 @@
             background-position: center 50%;
             background-attachment: fixed;
         }
+
+        .hover-float:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
     </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden overflow-x-hidden bg-neutral-50 text-neutral-900">
 
     <!-- Header -->
     <header class="fixed top-5 left-0 w-full z-50">
@@ -138,45 +210,39 @@
                     </a>
                 </div>
 
-                <!-- Links (desktop) -->
-                <div class="hidden md:flex space-x-14 font-medium font-semibold text-white">
-                    <a href="#inicio" class="relative group">
-                        Inicio
+                <!-- Links desktop -->
+                <div class="hidden md:flex space-x-14 font-semibold text-neutral-50">
+                    <a href="#inicio" class="relative group">Inicio
                         <span
-                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-neutral-50 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="#nosotros" class="relative group">
-                        Nosotros
+                    <a href="#nosotros" class="relative group">Nosotros
                         <span
-                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-neutral-50 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="#programas" class="relative group">
-                        Programas
+                    <a href="#programas" class="relative group">Programas
                         <span
-                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-neutral-50 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="#memorias" class="relative group">
-                        Memorias
+                    <a href="#memorias" class="relative group">Memorias
                         <span
-                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-neutral-50 transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="#contacto" class="relative group">
-                        Contacto
+                    <a href="#contacto" class="relative group">Contacto
                         <span
-                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                            class="absolute left-0 -bottom-1 w-0 h-[2px] bg-neutral-50 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </div>
 
-
-                <!-- Botón extra (desktop) -->
+                <!-- Botón Donar desktop -->
                 <div class="hidden md:flex">
                     <a href="#donaciones"
-                        class="px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-gray-800 transition">
+                        class="px-4 py-2 bg-accent-500 text-white rounded-xl hover:bg-accent-600 transition">
                         Donar
                     </a>
                 </div>
 
-                <!-- Botón hamburguesa (móvil) -->
+                <!-- Botón móvil -->
                 <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none z-50 relative">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -185,81 +251,88 @@
 
         <!-- Overlay + Menú móvil -->
         <div id="mobile-overlay" class="hidden fixed inset-0 bg-black/50 z-40"></div>
-
         <nav id="mobile-menu"
             class="hidden fixed inset-0 backdrop-blur-md text-white flex flex-col items-center justify-center space-y-8 text-2xl z-50">
-            <a href="#inicio" class="hover:text-primary-300">Inicio</a>
-            <a href="#nosotros" class="hover:text-primary-300">Nosotros</a>
-            <a href="#programas" class="hover:text-primary-300">Programas</a>
-            <a href="#memorias" class="hover:text-primary-300">Memorias</a>
-            <a href="#contacto" class="hover:text-primary-300">Contacto</a>
-            <a href="#donaciones"
-                class="px-6 py-3 bg-primary-600 text-hite rounded-full font-bold hover:bg-primary-100 transition">
+            <a href="#inicio" class="hover:text-accent-500">Inicio</a>
+            <a href="#nosotros" class="hover:text-accent-500">Nosotros</a>
+            <a href="#programas" class="hover:text-accent-500">Programas</a>
+            <a href="#memorias" class="hover:text-accent-500">Memorias</a>
+            <a href="#contacto" class="hover:text-accent-500">Contacto</a>
+            <a href="#donaciones" class="px-6 py-3 bg-accent-500 rounded-full font-bold hover:bg-accent-600 transition">
                 Donar
             </a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+
+    <!-- Botón Ir arriba -->
+    <button id="scrollTopBtn"
+        class="hidden fixed bottom-6 right-6 bg-accent-500 text-white p-4 rounded-full shadow-lg text-xl hover:bg-accent-600 transition animate-bounce">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+
+    <!-- Barra de progreso -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-accent-500 z-[9999]" style="width: 0%;"></div>
+
+
+    <!-- Hero -->
     <section id="inicio"
-        class="min-h-screen hero-bg flex items-center justify-center text-white text-center relative overflow-hidden">
-        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28">
+        class="min-h-screen hero-bg flex items-center justify-center text-neutral-50 text-center relative overflow-hidden">
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28">
+            <!-- H1 Hero -->
+            <h1 class="text-h1 font-bold mb-8 leading-tight reveal">Somos Sinergia</h1>
 
-            <!-- Título -->
-            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-snug sm:leading-tight">
-                Somos Sinergia
-            </h1>
-
-            <!-- Subtítulo -->
-            <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 opacity-90 drop-shadow-lg">
+            <!-- Subtítulo Hero -->
+            <p class="text-body mb-12 opacity-95 max-w-3xl mx-auto leading-relaxed font-medium text-neutral-100 reveal">
                 Casa de Acogida "Rayitos de Luz" – Brindando amor, protección y oportunidades a niños en situación de
                 calle.
             </p>
 
             <!-- Botón CTA -->
             <a href="#donaciones"
-                class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-pulse-glow">
+                class="inline-block bg-accent-500 hover:bg-accent-600 text-white font-bold py-5 px-10 rounded-full text-xl transition animate-float-glow">
                 Ayúdanos a Ayudar
             </a>
+        </div>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <h3 class="text-2xl sm:text-3xl font-bold counter" data-target="19">0</h3>
-                    <p class="text-sm opacity-80">Años de experiencia</p>
+        <!-- Elemento flotante decorativo -->
+        <div
+            class="absolute bottom-20 right-8 w-24 h-24 sm:w-32 sm:h-32 bg-white/10 rounded-full animate-float blur-sm">
+        </div>
+    </section>
+
+
+    <!-- Estadísticas -->
+    <section class="py-16 bg-primary-700 text-neutral-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                <div class="group hover-float transition reveal animate-delay-1">
+                    <h3 class="text-h2 font-bold mb-2">19</h3>
+                    <p class="text-body text-neutral-100 font-medium">Años de experiencia</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <h3 class="text-2xl sm:text-3xl font-bold counter" data-target="4">0</h3>
-                    <p class="text-sm opacity-80">Programas activos</p>
+                <div class="group hover-float transition reveal animate-delay-2">
+                    <h3 class="text-h2 font-bold mb-2">6</h3>
+                    <p class="text-body text-neutral-100 font-medium">Programas activos</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                    <h3 class="text-2xl sm:text-3xl font-bold counter" data-target="2005">0</h3>
-                    <p class="text-sm opacity-80">Fundación</p>
+                <div class="group hover-float transition reveal animate-delay-3">
+                    <h3 class="text-h2 font-bold mb-2">2005</h3>
+                    <p class="text-body text-neutral-100 font-medium">Año de fundación</p>
                 </div>
             </div>
         </div>
-
-        <!-- Floating elements -->
-        <div
-            class="absolute top-10 left-4 w-12 h-12 sm:w-20 sm:h-20 bg-primary-600 bg-opacity-20 rounded-full animate-float">
-        </div>
-        <div class="absolute bottom-16 right-4 w-20 h-20 sm:w-32 sm:h-32 bg-secondary-500 bg-opacity-20 rounded-full animate-float"
-            style="animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/4 w-10 h-10 sm:w-16 sm:h-16 bg-secondary-600 bg-opacity-20 rounded-full animate-float"
-            style="animation-delay: 2s;"></div>
     </section>
 
 
     <!-- Nosotros -->
-    <section id="nosotros" class="w-full hero-bg-nosotros mb-16 py-12 sm:py-16">
+    <section id="nosotros" class="w-full py-16 bg-neutral-100 hero-bg-nosotros">
+        <div class="w-[90%] sm:w-[80%] lg:w-[70%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <div class="w-[90%] sm:w-[80%] lg:w-[50%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            <!-- Columna izquierda (sticky solo en desktop) -->
+            <!-- Columna izquierda (sticky en desktop) -->
             <div class="md:sticky md:top-32 self-start">
-                <div class="bg-primary-700 shadow-md p-6 sm:p-10 rounded-xl text-center md:text-center">
-                    <h2 class="text-2xl sm:text-2xl font-semibold mb-4 text-white">¿Quiénes Somos?</h2>
-                    <p class="text-white text-base sm:text-lg leading-relaxed">
+                <div class="bg-primary-700 p-8 rounded-xl text-center text-neutral-50 shadow-lg">
+                    <h2 class="text-h2 font-semibold mb-4">¿Quiénes Somos?</h2>
+                    <p class="text-body text-neutral-100 leading-relaxed">
                         Somos una organización de impacto social positivo, creada el 03 de junio del 2005,
                         para ofrecer protección, atención y oportunidades a niños, niñas, adolescentes y jóvenes
                         en situación de calle en Lima y Callao.
@@ -267,14 +340,13 @@
                 </div>
             </div>
 
-            <!-- Columna derecha (cards en scroll normal) -->
+            <!-- Columna derecha (cards alternadas) -->
             <div class="space-y-6 sm:space-y-8">
 
                 <!-- Historia -->
-                <div
-                    class="bg-primary-600 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal text-center">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Nuestra Historia</h3>
-                    <p class="text-sm sm:text-base leading-relaxed">
+                <div class="bg-neutral-100 p-6 sm:p-8 rounded-xl shadow text-neutral-900 reveal">
+                    <h3 class="text-h3 font-semibold mb-2">Nuestra Historia</h3>
+                    <p class="text-body text-paragraph leading-relaxed">
                         El 01 de octubre del 2005, abrimos por primera vez las puertas de nuestra Casa de Acogida
                         <strong>“Rayitos de Luz”</strong>, donde brindamos atención residencial e integral a niños,
                         niñas y adolescentes en situación de calle.
@@ -282,46 +354,44 @@
                 </div>
 
                 <!-- Misión -->
-                <div
-                    class="bg-primary-700 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal delay-200 text-center">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Nuestra Misión</h3>
-                    <p class="text-sm sm:text-base leading-relaxed">
+                <div class="bg-primary-700 p-6 sm:p-8 rounded-xl text-neutral-50 shadow reveal">
+                    <h3 class="text-h3 font-semibold mb-2">Nuestra Misión</h3>
+                    <p class="text-body text-neutral-100 leading-relaxed">
                         Acompañar y brindar atención integral a niños, niñas, adolescentes y jóvenes en situación de
                         calle de manera personalizada en un ambiente familiar.
                     </p>
                 </div>
 
                 <!-- Visión -->
-                <div
-                    class="bg-primary-600 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal delay-400 text-center">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-2">Nuestra Visión</h3>
-                    <p class="text-sm sm:text-base leading-relaxed">
+                <div class="bg-neutral-100 p-6 sm:p-8 rounded-xl shadow text-neutral-900 reveal">
+                    <h3 class="text-h3 font-semibold mb-2">Nuestra Visión</h3>
+                    <p class="text-body text-paragraph leading-relaxed">
                         Al 2030 Sinergia por la Infancia es reconocida por contribuir a la mejora integral de las
                         condiciones de vida de niños, niñas, adolescentes y jóvenes en situación de calle.
                     </p>
                 </div>
 
                 <!-- Valores -->
-                <div
-                    class="bg-primary-700 shadow-md p-6 sm:p-10 rounded-xl text-white transform translate-y-6 transition-all duration-700 reveal delay-600 text-center">
-                    <h3 class="text-lg sm:text-xl font-semibold mb-4">Nuestros Valores</h3>
-                    <ul class="space-y-3 sm:space-y-4 text-sm sm:text-base">
-                        <li class="flex items-start">
-                            <i class="fa-solid fa-heart mr-3 text-lg sm:text-xl"></i>
-                            <div><strong>Amor incondicional:</strong> Cada niño merece ser amado y valorado</div>
+                <div class="bg-primary-700 p-6 sm:p-8 rounded-xl text-neutral-50 shadow reveal">
+                    <h3 class="text-h3 font-semibold mb-4">Nuestros Valores</h3>
+                    <ul class="space-y-3 sm:space-y-4 text-neutral-100">
+                        <li class="flex items-start text-body">
+                            <i class="fa-solid fa-heart text-accent-500 mr-3 text-lg sm:text-xl icon-pulse"></i>
+                            <span><strong>Amor incondicional:</strong> Cada niño merece ser amado y valorado</span>
                         </li>
-                        <li class="flex items-start">
-                            <i class="fa-solid fa-book mr-3 text-lg sm:text-xl"></i>
-                            <div><strong>Responsabilidad:</strong> Impulsamos el desarrollo de personas íntegras</div>
+                        <li class="flex items-start text-body">
+                            <i class="fa-solid fa-book text-accent-500 mr-3 text-lg sm:text-xl icon-pulse"></i>
+                            <span><strong>Responsabilidad:</strong> Impulsamos el desarrollo de personas íntegras</span>
                         </li>
-                        <li class="flex items-start">
-                            <i class="fa-solid fa-handshake mr-3 text-lg sm:text-xl"></i>
-                            <div><strong>Respeto y dignidad:</strong> Tratamos a cada niño con el respeto que merece
-                            </div>
+                        <li class="flex items-start text-body">
+                            <i class="fa-solid fa-handshake text-accent-500 mr-3 text-lg sm:text-xl icon-pulse"></i>
+                            <span><strong>Respeto y dignidad:</strong> Tratamos a cada niño con el respeto que
+                                merece</span>
                         </li>
-                        <li class="flex items-start">
-                            <i class="fa-solid fa-magnifying-glass mr-3 text-lg sm:text-xl"></i>
-                            <div><strong>Transparencia:</strong> Manejamos los recursos con total transparencia</div>
+                        <li class="flex items-start text-body">
+                            <i
+                                class="fa-solid fa-magnifying-glass text-accent-500 mr-3 text-lg sm:text-xl icon-pulse"></i>
+                            <span><strong>Transparencia:</strong> Manejamos los recursos con total transparencia</span>
                         </li>
                     </ul>
                 </div>
@@ -333,10 +403,10 @@
 
     <!-- Programas -->
     <section id="programas" class="py-16 sm:py-24 bg-white">
-
         <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-12 sm:mb-16 mt-20 sm:mt-32">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Nuestros Programas</h2>
-            <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <!-- Título sección -->
+            <h2 class="text-h2 font-bold text-neutral-800 mb-4">Nuestros Programas</h2>
+            <p class="text-body text-paragraph max-w-2xl mx-auto leading-relaxed">
                 Desarrollamos iniciativas que buscan transformar vidas, brindar oportunidades y acompañar
                 a niños y adolescentes en situación de vulnerabilidad.
             </p>
@@ -345,91 +415,85 @@
         <!-- Grid de programas -->
         <div class="w-[90%] lg:w-[75%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
 
-            <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
-                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal">
+            <!-- Card 1 -->
+            <div
+                class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center hover:scale-105 hover:shadow-2xl hover-float reveal">
                 <div
-                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
-                    bg-primary-100 text-primary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
-                    <i class="fa-solid fa-house-chimney"></i>
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 text-3xl">
+                    <i class="fa-solid fa-house-chimney icon-pulse"></i>
                 </div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">Casa de Acogida</h3>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <h3 class="text-h3 font-semibold mb-2 text-neutral-800">Casa de Acogida</h3>
+                <p class="text-body text-paragraph leading-relaxed">
                     Brindamos atención residencial integral a niños y adolescentes en situación de calle,
                     ofreciéndoles un hogar seguro y oportunidades de desarrollo.
                 </p>
             </div>
 
-            <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
-                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-200">
+            <!-- Card 2 -->
+            <div
+                class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center hover:scale-105 hover:shadow-2xl hover-float reveal">
                 <div
-                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
-                    bg-secondary-100 text-secondary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-accent-100 text-accent-500 text-3xl">
+                    <i class="fa-solid fa-hand-holding-heart icon-pulse"></i>
                 </div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">Apoyo Psicosocial</h3>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <h3 class="text-h3 font-semibold mb-2 text-neutral-800">Apoyo Psicosocial</h3>
+                <p class="text-body text-paragraph leading-relaxed">
                     Acompañamiento psicológico y social para la recuperación emocional,
                     fomentando la resiliencia y el desarrollo personal.
                 </p>
             </div>
 
-            <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
-                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-400">
+            <!-- Card 3 -->
+            <div
+                class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center hover:scale-105 hover:shadow-2xl hover-float reveal">
                 <div
-                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
-                    bg-primary-100 text-primary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 text-3xl">
+                    <i class="fa-solid fa-graduation-cap icon-pulse"></i>
                 </div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">Educación y Formación</h3>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <h3 class="text-h3 font-semibold mb-2 text-neutral-800">Educación y Formación</h3>
+                <p class="text-body text-paragraph leading-relaxed">
                     Programas educativos y de capacitación que buscan fortalecer competencias académicas,
                     técnicas y sociales para un futuro con más oportunidades.
                 </p>
             </div>
 
-            <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
-                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-600">
+            <!-- Card 4 -->
+            <div
+                class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center hover:scale-105 hover:shadow-2xl hover-float reveal">
                 <div
-                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
-                    bg-secondary-100 text-secondary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
-                    <i class="fa-solid fa-people-group"></i>
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-accent-100 text-accent-500 text-3xl">
+                    <i class="fa-solid fa-people-group icon-pulse"></i>
                 </div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">Reinserción Familiar</h3>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <h3 class="text-h3 font-semibold mb-2 text-neutral-800">Reinserción Familiar</h3>
+                <p class="text-body text-paragraph leading-relaxed">
                     Promovemos la integración familiar y social de los beneficiarios,
                     siempre que existan condiciones seguras y saludables.
                 </p>
             </div>
 
-            <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
-                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-800">
+            <!-- Card 5 -->
+            <div
+                class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center hover:scale-105 hover:shadow-2xl hover-float reveal">
                 <div
-                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
-                    bg-primary-100 text-primary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
-                    <i class="fa-solid fa-handshake-angle"></i>
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-primary-100 text-primary-600 text-3xl">
+                    <i class="fa-solid fa-handshake-angle icon-pulse"></i>
                 </div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">Voluntariado</h3>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <h3 class="text-h3 font-semibold mb-2 text-neutral-800">Voluntariado</h3>
+                <p class="text-body text-paragraph leading-relaxed">
                     Espacios para que personas comprometidas aporten su tiempo y habilidades
                     en beneficio de los niños y adolescentes atendidos.
                 </p>
             </div>
 
-            <!-- Card -->
-            <div class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center transform transition duration-300 
-                  hover:scale-105 hover:shadow-2xl opacity-0 translate-y-6 reveal delay-1000">
+            <!-- Card 6 -->
+            <div
+                class="bg-white rounded-2xl shadow-md sm:shadow-lg p-6 sm:p-8 text-center hover:scale-105 hover:shadow-2xl hover-float reveal">
                 <div
-                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full 
-                    bg-secondary-100 text-secondary-600 text-2xl sm:text-3xl transition-transform duration-500 hover:rotate-6">
-                    <i class="fa-solid fa-seedling"></i>
+                    class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-accent-100 text-accent-500 text-3xl">
+                    <i class="fa-solid fa-seedling icon-pulse"></i>
                 </div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">Prevención y Desarrollo</h3>
-                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <h3 class="text-h3 font-semibold mb-2 text-neutral-800">Prevención y Desarrollo</h3>
+                <p class="text-body text-paragraph leading-relaxed">
                     Iniciativas preventivas y proyectos de desarrollo comunitario
                     que buscan reducir la vulnerabilidad social desde la raíz.
                 </p>
@@ -439,11 +503,12 @@
     </section>
 
 
-    <!-- Galería -->
-    <section id="memorias" class="py-16 sm:py-24 bg-gray-100">
+    <!-- Galería de Memorias -->
+    <section id="memorias" class="py-16 sm:py-24 bg-neutral-100">
         <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-12 sm:mb-16 mt-20 sm:mt-32">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Galería de Memorias</h2>
-            <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <!-- Título sección -->
+            <h2 class="text-h2 font-bold text-neutral-800 mb-4">Galería de Memorias</h2>
+            <p class="text-body text-paragraph max-w-2xl mx-auto leading-relaxed">
                 Momentos que reflejan nuestro compromiso con los niños, niñas y adolescentes.
             </p>
         </div>
@@ -452,93 +517,83 @@
         <div class="w-[90%] lg:w-[75%] mx-auto columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
 
             <!-- Imagen 1 -->
-            <div class="relative group cursor-pointer" onclick="openModal(0)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwEygve8&_nc_oc=AdnZtHqC7oM37KAWNmpFyWnaQ-hkMeF16xe30-CAyZJ_kOJUYKFSzATZ26tQMjT1QVA&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=sPDzxHc6RZlJBWOAcn20VA&oh=00_AfYW4__ocg4uhZ1xslSAxktSymMBVoFaKmW5jlnLumAC8A&oe=68D381BE"
-                    alt="Galería 1"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-60">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(0)">
+                <img src="src/galeria/gallery-1.jpg" alt="Galería 1"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
 
             <!-- Imagen 2 -->
-            <div class="relative group cursor-pointer" onclick="openModal(1)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/482349455_965315762393292_8549175120606786634_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG5o6gJjWbaEMXsvAZwc8PQEMeuQToKZdcQx65BOgpl12z2BLYBbTSTyMVzUlvy0qNg137QPwUnwPWzq1lkktFJ&_nc_ohc=fyJ63fylYNUQ7kNvwHE1xFg&_nc_oc=Adn0UOj6YT7qPY2507vV0QlLqqsl5pUKZ0NpC5PqabfaTaUDAz7zrjWGpwe-2F8UaRo&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=MRUblANM2yjsan8i8I25SA&oh=00_AfZVY5FlhEylSFnw-hnON9o7WVtn_Z48Fwix22spYvS3Yg&oe=68D3A46F"
-                    alt="Galería 2"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-80">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(1)">
+                <img src="src/galeria/gallery-2.jpg" alt="Galería 2"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
 
             <!-- Imagen 3 -->
-            <div class="relative group cursor-pointer" onclick="openModal(2)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/481706382_965315912393277_3105124696562702293_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEIVyOJlTb4lWiNaMl_kUctP0FS5SiA42M_QVLlKIDjYw8cM9vii2v3WL5yGXG8NMt0JFHvUw3W94a8lC6Zonm6&_nc_ohc=OHUasbL9utEQ7kNvwEGjWIm&_nc_oc=AdmYqY-pDZPjHd_ztMrqwUToksXZx_Oy1tdSNk62-wwbuf3qjTujVcNMRlbvrodIBKU&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=2Gba4hSBgRlqdCpzduvItA&oh=00_AfYwWEGJJLf2WqVkYVLsy9n8n8mJdj1m1RzZYA4PoEymqA&oe=68D399F0"
-                    alt="Galería 3"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-72">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(2)">
+                <img src="src/galeria/gallery-3.jpg" alt="Galería 3"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
 
             <!-- Imagen 4 -->
-            <div class="relative group cursor-pointer" onclick="openModal(3)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535195550_1084554597136074_8237346260479836184_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGLOxYJxKtlVl3awBsbfAMzUGn3RxjEptNQafdHGMSm05wQ3-OiDEYo_wK6f3upNw8uft5VwVTxBCLt_5CKDbqu&_nc_ohc=K5Eu07MUPK8Q7kNvwEuIWY9&_nc_oc=AdkGcLoPr7NWqIxCQWq_to8xLgkKhlYEMKQVbcCv8UU8A-bdul5aWZe2WTkJ7Tk6luk&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8v9DU8fXtmmBGL4lnHchtA&oh=00_AfYQnDM7IMUriX0hL7CLc9XTCVga6G5Sv6Zg2RgaCZLOLA&oe=68D396F8"
-                    alt="Galería 4"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-96">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(3)">
+                <img src="src/galeria/gallery-4.jpg" alt="Galería 4"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
 
             <!-- Imagen 5 -->
-            <div class="relative group cursor-pointer" onclick="openModal(4)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/483536853_966850348906500_4801953846974499289_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE1OCKVNQ-fSKP3iRXJnGNe2ZQjQiHrTJrZlCNCIetMmphSU4T6nTRomH-Tx8Wk0ua11AXV-mid81dC07p7cIa6&_nc_ohc=AUH72RithnsQ7kNvwFfg_i7&_nc_oc=AdmfrZwW9q4ZHjrJVwiNIOSe5f2VHVEANnpKcfzWCozhvfwLB1SjSpo0DPSTchmFJVE&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=2Vu-CWxU_zIVOORhgqHv2w&oh=00_AfahS-H018pdz1gM81kBPczu24sh_8wZCdZOZIqznTPXhQ&oe=68D3825F"
-                    alt="Galería 5"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-64">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(4)">
+                <img src="src/galeria/gallery-5.jpg" alt="Galería 5"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
 
             <!-- Imagen 6 -->
-            <div class="relative group cursor-pointer" onclick="openModal(5)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536105016_1084554457136088_2913267862110025140_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGiCP-hSNcJIn9yKOpLFO6wG7TWq59LOKwbtNarn0s4rENCDhTK6WR3japuwU2Dc7PW63H64-UwwQJL5yrFxNtR&_nc_ohc=D8ZthWBlRbIQ7kNvwH2IBZW&_nc_oc=AdnMb5OAman_zXOwx-b9xlU6PwLWtDVHfENKijXbdz9MB6ZxY7rBWxjziGduLxiWNVM&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=_cofFseYslwxPJ5Vpkn-mA&oh=00_AfbnbrrJRZmfbh5dfZMxO4Gu7AnWHtkT93XPCchEpbFKfw&oe=68D381AC"
-                    alt="Galería 6"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-80">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(5)">
+                <img src="src/galeria/gallery-6.jpg" alt="Galería 6"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
 
             <!-- Imagen 7 -->
-            <div class="relative group cursor-pointer" onclick="openModal(6)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/534998815_1084553143802886_6295208137673115145_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEJwbRVDnnmaMdt3mLagf59aJEW4mm3DUJokRbiabcNQhmyN0JnOx0dafRrzjl9YC8d-tP1L4JDEuXh3A9hl-l9&_nc_ohc=mOK4ozZU-ksQ7kNvwEpJuSX&_nc_oc=AdlxNPSW7ozGQgWMOOqeGdp_Rl-qAs1XuUzJMPDFUT77wz6VxbqzEWX_zuefyKnwlGw&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=LNlLX3mz-qTqjRU2EYj27Q&oh=00_AfaPm-5vrQbt-UkFNv1ZzOosPUc6kKlizIG70ZXJwGF-ZA&oe=68D394BB"
-                    alt="Galería 7"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-72">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(6)">
+                <img src="src/galeria/gallery-7.jpg" alt="Galería 7"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
 
             <!-- Imagen 8 -->
-            <div class="relative group cursor-pointer" onclick="openModal(7)">
-                <img src="https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/535129458_1084551937136340_4210952467735567833_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEe-mJzC8j_e9bDnufb83wkuOXLXIkI25C45ctciQjbkBbbrQ-2kxOeQSB28A_UHKtjnXCRfJaK3922RSxFzliE&_nc_ohc=DAi9f5IDVuEQ7kNvwFoyiKi&_nc_oc=AdnpE4TOrVmG7C_VeHOmCAqVAzA8ZzRZg-YFEMrq9V-njjGt1AjL9CmDHdFis5JHEXQ&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=UFua1JGgfMMaSioEh0ZG9g&oh=00_Afa4A9Z7Yn3crC9cTjtY-ndy7F5dkDACnBNVGv-cy7bdtA&oe=68D3A90C"
-                    alt="Galería 8"
-                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover sm:h-auto lg:h-96">
+            <div class="relative group cursor-pointer reveal" onclick="openModal(7)">
+                <img src="src/galeria/gallery-8.jpg" alt="Galería 8"
+                    class="w-full rounded-lg shadow-md group-hover:scale-105 transition duration-500 object-cover">
             </div>
-
         </div>
     </section>
+
 
     <!-- Modal de galería -->
     <div id="galleryModal" class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4">
         <!-- Botón cerrar -->
-        <button onclick="closeModal()"
-            class="absolute top-4 right-4 text-white text-2xl sm:text-3xl hover:text-primary-400">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-3xl hover:text-accent-500">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
         <!-- Imagen -->
         <img id="modalImage" src="" alt="Imagen ampliada"
-            class="max-h-[70vh] sm:max-h-[80vh] max-w-full sm:max-w-[90%] rounded-lg shadow-xl object-contain">
+            class="max-h-[80vh] max-w-full sm:max-w-[90%] rounded-lg shadow-xl object-contain">
 
         <!-- Controles -->
-        <button onclick="prevImage()"
-            class="absolute left-3 sm:left-6 text-white text-2xl sm:text-4xl hover:text-primary-400">
+        <button onclick="prevImage()" class="absolute left-4 sm:left-8 text-white text-4xl hover:text-accent-500">
             <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <button onclick="nextImage()"
-            class="absolute right-3 sm:right-6 text-white text-2xl sm:text-4xl hover:text-primary-400">
+        <button onclick="nextImage()" class="absolute right-4 sm:right-8 text-white text-4xl hover:text-accent-500">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
+
 
     <!-- Modal -->
     <div id="imageModal"
         class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-4xl w-full mx-4 overflow-hidden shadow-2xl">
             <div class="flex justify-between items-center p-6 border-b">
-                <h3 class="text-xl font-bold text-paragraph" id="modalTitle">Imagen de la galería</h3>
+                <h3 class="text-xl font-bold text-paragraph" id="modalTitle">Imddddagen de la galería</h3>
                 <button onclick="closeModal()"
                     class="text-gray-500 hover:text-gray-700 text-3xl font-bold transition-colors">&times;</button>
             </div>
@@ -551,10 +606,10 @@
 
     <!-- Donaciones -->
     <section id="donaciones" class="py-16 sm:py-24 bg-white">
-
         <div class="w-[90%] lg:w-[75%] mx-auto text-center mb-16 mt-32">
-            <h2 class="text-4xl font-bold mb-4">Haz la Diferencia</h2>
-            <p class="text-lg opacity-90 max-w-2xl mx-auto">
+            <!-- Título -->
+            <h2 class="text-h2 font-bold mb-4 text-neutral-800">Haz la Diferencia</h2>
+            <p class="text-body text-paragraph max-w-2xl mx-auto">
                 Tu aporte transforma vidas. Elige el medio que más te acomode y súmate a nuestra misión.
             </p>
         </div>
@@ -563,92 +618,79 @@
 
             <!-- Transferencia bancaria -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
-                <img src="src/bcp-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
-                <h3 class="text-xl font-semibold mb-4 text-center">Transferencia Bancaria</h3>
-                <p class="text-sm text-center">BCP - SINERGIA POR LA INFANCIA</p>
-                <div class="mt-4 space-y-1 text-sm">
+                class="bg-neutral-50 rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between hover-float reveal">
+                <img src="src/bcp-logo.png" class="w-20 mx-auto mb-4" alt="BCP">
+                <h3 class="text-h3 font-semibold mb-4 text-neutral-800">Transferencia Bancaria</h3>
+                <p class="text-small">BCP - SINERGIA POR LA INFANCIA</p>
+                <div class="mt-4 space-y-1 text-small text-paragraph">
                     <p><strong>Cuenta:</strong> 1941895118004</p>
                     <p><strong>CCI:</strong> 00219400189511800493</p>
                     <p><strong>RUC:</strong> 20511555991</p>
                 </div>
                 <button onclick="copyText('00219400189511800493')"
-                    class="mt-4 bg-secondary-800 text-white px-4 py-2 rounded-lg text-sm sm:text-base hover:bg-primary-700 transition">
-                    <i class="fa-solid fa-copy mr-2"></i>
-                    Copiar CCI
+                    class="mt-4 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-small sm:text-body hover-float transition">
+                    <i class="fa-solid fa-copy mr-2 icon-pulse"></i> Copiar CCI
                 </button>
             </div>
 
             <!-- Yape -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
+                class="bg-neutral-50 rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between hover-float reveal">
                 <img src="src/yape-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
-                <h3 class="text-xl font-semibold mb-4 text-center">Yape</h3>
-                <p class="text-center text-sm">Número: <strong>998705600</strong></p>
-                <div class="text-center mt-4">
+                <h3 class="text-h3 font-semibold mb-4 text-neutral-800">Yape</h3>
+                <p class="text-small">Número: <strong>998705600</strong></p>
+                <div class="mt-4">
                     <img src="src/qr-yape.jpg"
-                        class="w-32 h-32 mx-auto bg-white p-2 rounded cursor-pointer hover:scale-110 transition"
+                        class="w-32 h-32 mx-auto bg-white p-2 rounded cursor-pointer hover:scale-110 hover-float transition"
                         alt="QR Yape" onclick="openQR('Yape - 998705600', this.src)">
-                    <p class="mt-2 text-sm">Escanea o copia el número</p>
+                    <p class="mt-2 text-small text-paragraph">Escanea o copia el número</p>
                     <button onclick="copyText('998705600')"
-                        class="mt-6 w-full bg-secondary-700 rounded-lg py-2 hover:bg-secondary-700/70 text-white">
-                        <i class="fa-solid fa-copy mr-2"></i>
-                        Copiar Número
+                        class="mt-4 w-full bg-accent-500 hover:bg-accent-600 text-white rounded-lg py-2 hover-float transition text-small sm:text-body">
+                        <i class="fa-solid fa-copy mr-2 icon-pulse"></i> Copiar Número
                     </button>
                 </div>
             </div>
 
-            <!-- Donaciones con PayPal -->
+            <!-- PayPal -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
-                <img src="src/paypal-logo.png" class="w-20 mx-auto mb-4" alt="Yape">
-                <h3 class="text-xl font-semibold mb-4">PayPal</h3>
-                <p class="mb-4 text">
-                    Haz tu donación de forma rápida y segura usando PayPal.
-                </p>
-                <div class="text-center mt-4">
-                    <a href="https://www.paypal.com/donate/?hosted_button_id=ZRC2G8KXZPKDU" target="_blank"
-                        class="w-full inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg shadow-md transition">
-                        <div class="w-full ">
-                            <i class="fa-brands fa-paypal mr-2"></i>
-                            Donar con PayPal
-                        </div>
-                    </a>
-                </div>
+                class="bg-neutral-50 rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between hover-float reveal">
+                <img src="src/paypal-logo.png" class="w-20 mx-auto mb-4" alt="PayPal">
+                <h3 class="text-h3 font-semibold mb-4 text-neutral-800">PayPal</h3>
+                <p class="text-small text-paragraph mb-4">Haz tu donación de forma rápida y segura usando PayPal.</p>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=ZRC2G8KXZPKDU" target="_blank"
+                    class="w-full inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-lg shadow-md hover-float transition text-small sm:text-body">
+                    <i class="fa-brands fa-paypal icon-pulse"></i> Donar con PayPal
+                </a>
             </div>
-
 
             <!-- Donaciones en especie -->
             <div
-                class="bg-white/10 backdrop-blur-lg rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between">
-                <div class="text-5xl mb-4 text-center"><i class="fa-solid fa-gifts"></i></div>
-                <h3 class="text-xl font-bold mb-4 text-center">En Especie</h3>
-                <p class="mb-3 text-sm">Puedes donar directamente artículos:</p>
-                <ul class="space-y-2 text-sm">
-                    <li><i class="fa-solid fa-shirt mr-2"></i> Ropa y zapatos</li>
-                    <li><i class="fa-solid fa-book mr-2"></i> Útiles escolares</li>
-                    <li><i class="fa-solid fa-mug-hot mr-2"></i> Alimentos</li>
-                    <li><i class="fa-solid fa-robot mr-2"></i> Juguetes y libros</li>
-                    <li><i class="fa-solid fa-gift mr-2"></i> Otros en buen estado</li>
+                class="bg-neutral-50 rounded-xl shadow-xl p-6 sm:p-8 text-center flex flex-col justify-between hover-float reveal">
+                <div class="text-5xl mb-4 text-accent-500"><i class="fa-solid fa-gifts"></i></div>
+                <h3 class="text-h3 font-bold mb-4 text-neutral-800">En Especie</h3>
+                <p class="mb-3 text-small text-paragraph">Puedes donar directamente artículos:</p>
+                <ul class="space-y-2 text-small text-paragraph text-left inline-block mx-auto ">
+                    <li class="icon-pulse"><i class="fa-solid fa-shirt mr-2"></i> Ropa y zapatos</li>
+                    <li class="icon-pulse"><i class="fa-solid fa-book mr-2"></i> Útiles escolares</li>
+                    <li class="icon-pulse"><i class="fa-solid fa-mug-hot mr-2"></i> Alimentos</li>
+                    <li class="icon-pulse"><i class="fa-solid fa-robot mr-2"></i> Juguetes y libros</li>
+                    <li class="icon-pulse"><i class="fa-solid fa-gift mr-2"></i> Otros en buen estado</li>
                 </ul>
-                <div class="text-center mt-4">
-                    <a href="https://api.whatsapp.com/send?phone=51998705600&text=Hola%2C+desear%C3%ADa+contactarme+con+Sinergia+por+la+Infancia+para+realizar+una+donación"
-                        target="_blank" rel="noopener noreferrer"
-                        class="w-full inline-flex items-center gap-2 bg-primary-800 hover:bg-primary-800/70 text-white py-2 rounded-lg shadow-md transition">
-                        <div class="w-full">
-                            <i class="fa-brands fa-whatsapp mr-2"></i>
-                            Contactar
-                        </div>
-                    </a>
-                </div>
+                <a href="https://api.whatsapp.com/send?phone=51998705600&text=Hola%2C+quiero+apoyar+a+Sinergia+por+la+Infancia"
+                    target="_blank" rel="noopener noreferrer"
+                    class="mt-4 w-full inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg shadow-md hover-float transition text-small sm:text-body">
+                    <i class="fa-brands fa-whatsapp"></i> Contactar
+                </a>
             </div>
+
         </div>
     </section>
+
 
     <!-- Modal QR -->
     <div id="qrModal" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center">
         <div class="bg-white rounded-xl shadow-lg p-6 text-center">
-            <h3 id="qrTitle" class="text-lg font-bold mb-4 text-gray-700"></h3>
+            <h3 id="qrTitle" class="text-lg font-bold mb-4 text-neutral-800"></h3>
             <img id="qrImage" src="" alt="QR ampliado" class="w-64 h-64 mx-auto rounded border p-2 bg-white">
             <button onclick="closeQR()"
                 class="mt-6 bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700">
@@ -658,73 +700,80 @@
     </div>
 
     <!-- Contacto -->
-    <section id="contacto" class="py-24 bg-gray-100">
+    <section id="contacto" class="py-24 bg-neutral-100">
         <div class="w-[90%] lg:w-[75%] mx-auto mt-32">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Contáctanos</h2>
+            <!-- Título -->
+            <h2 class="text-h2 md:text-5xl font-bold text-center mb-16 text-neutral-800">Contáctanos</h2>
 
             <div class="grid lg:grid-cols-2 gap-12">
 
                 <!-- Información -->
                 <div class="space-y-8">
                     <div>
-                        <h3 class="text-2xl font-bold text-black mb-4 flex items-center">
-                            <i class="fa-solid fa-circle-info mr-3"></i> Información
+                        <h3 class="text-h3 font-bold mb-4 flex items-center text-neutral-800">
+                            <i class="fa-solid fa-circle-info mr-3 text-accent-500"></i> Información
                         </h3>
-                        <ul class="space-y-3 text-gray-700">
-                            <li><i class="fa-solid fa-location-dot mr-2 text-primary-700"></i> PARCELA F-4 SUB LOTE A-2
+                        <ul class="space-y-3 text-body text-paragraph">
+                            <li><i class="fa-solid fa-location-dot mr-2 text-primary-600"></i> PARCELA F-4 SUB LOTE A-2
                                 NRO. S/N SECTOR EL OLIVAR</li>
-                            <li><i class="fa-solid fa-phone mr-2 text-primary-700"></i>01 4680405</li>
-                            <li><i class="fa-solid fa-mobile-screen-button mr-2 text-primary-700"></i> (+51) 998-705-600
+                            <li><i class="fa-solid fa-phone mr-2 text-primary-600"></i> 01 4680405</li>
+                            <li><i class="fa-solid fa-mobile-screen-button mr-2 text-primary-600"></i> (+51) 998-705-600
                             </li>
-                            <li><i class="fa-solid fa-envelope mr-2 text-primary-700"></i> info@sinergiainfancia.org
+                            <li><i class="fa-solid fa-envelope mr-2 text-primary-600"></i> info@sinergiainfancia.org
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-bold text-black mb-4 flex items-center">
-                            <i class="fa-solid fa-share-nodes mr-3 text-black"></i> Redes Sociales
+                        <h3 class="text-h3 font-bold mb-4 flex items-center text-neutral-800">
+                            <i class="fa-solid fa-share-nodes mr-3 text-accent-500"></i> Redes Sociales
                         </h3>
-                        <div class="flex space-x-4">
+                        <div class="flex space-x-4 text-2xl">
                             <a href="https://www.facebook.com/sinergiaporlainfanciaperu" target="_blank"
-                                class="text-2xl hover:text-primary-700"><i class="fa-brands fa-facebook"></i></a>
+                                class="hover:text-primary-600">
+                                <i class="fa-brands fa-facebook icon-pulse"></i>
+                            </a>
                             <a href="https://www.instagram.com/sinergiaporlainfanciaperu/" target="_blank"
-                                class="text-2xl hover:text-primary-700"><i class="fa-brands fa-instagram"></i></a>
+                                class="hover:text-primary-600">
+                                <i class="fa-brands fa-instagram icon-pulse"></i>
+                            </a>
                             <a href="https://api.whatsapp.com/send?phone=51998705600" target="_blank"
-                                class="text-2xl hover:text-primary-700"><i class="fa-brands fa-whatsapp"></i></a>
+                                class="hover:text-primary-600">
+                                <i class="fa-brands fa-whatsapp icon-pulse"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Formulario -->
-                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <h3 class="text-2xl font-bold text-black mb-6 flex items-center">
-                        <i class="fa-solid fa-paper-plane mr-3"></i> Envíanos un Mensaje
+                <div class="bg-white rounded-2xl shadow-lg p-8 border border-neutral-200">
+                    <h3 class="text-h3 font-bold mb-6 flex items-center text-neutral-800">
+                        <i class="fa-solid fa-paper-plane mr-3 text-accent-500"></i> Envíanos un Mensaje
                     </h3>
 
                     <form id="contactForm" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <input type="text" id="name" name="name" placeholder="Nombre completo" required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-700 focus:ring-2 focus:ring-primary-200 transition">
+                                class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl focus:border-primary-600 focus:ring-2 focus:ring-primary-200 transition text-body">
                             <input type="email" id="email" name="email" placeholder="Correo electrónico" required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-700 focus:ring-2 focus:ring-primary-200 transition">
+                                class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl focus:border-primary-600 focus:ring-2 focus:ring-primary-200 transition text-body">
                         </div>
                         <div class="grid md:grid-cols-2 gap-6">
                             <input type="tel" id="phone" name="phone" placeholder="Teléfono"
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-700 focus:ring-2 focus:ring-primary-200 transition">
+                                class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl focus:border-primary-600 focus:ring-2 focus:ring-primary-200 transition text-body">
                             <input type="text" id="subject" name="subject" placeholder="Asunto" required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-700 focus:ring-2 focus:ring-primary-200 transition">
+                                class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl focus:border-primary-600 focus:ring-2 focus:ring-primary-200 transition text-body">
                         </div>
                         <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required
-                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-700 focus:ring-2 focus:ring-primary-200 transition resize-none"></textarea>
+                            class="w-full px-4 py-3 border-2 border-neutral-200 rounded-xl focus:border-primary-600 focus:ring-2 focus:ring-primary-200 transition resize-none text-body"></textarea>
                         <button type="submit"
-                            class="w-full bg-primary-700 hover:bg-primary-700 text-white font-bold py-4 px-8 rounded-xl transition transform hover:-translate-y-1">
+                            class="w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 px-8 rounded-xl transition text-body">
                             Enviar
                         </button>
                     </form>
 
                     <!-- Mensaje dinámico -->
-                    <div id="formMessage" class="hidden mt-4 text-center text-sm font-bold"></div>
+                    <div id="formMessage" class="hidden mt-4 text-center text-small font-bold"></div>
                 </div>
             </div>
 
@@ -737,14 +786,15 @@
         </div>
     </section>
 
+
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <footer class="bg-neutral-900 text-neutral-100 pt-16 pb-8">
         <div class="w-[90%] lg:w-[75%] mx-auto grid md:grid-cols-4 gap-12">
 
             <!-- Logo + frase -->
             <div class="space-y-4">
                 <img src="src/sinergia-por-la-infancia.png" alt="Logo" class="h-16 md:h-24">
-                <p class="text-sm">
+                <p class="text-small text-neutral-300">
                     Desde 2005 brindando amor, protección y oportunidades a niños, niñas y adolescentes en situación de
                     calle.
                 </p>
@@ -752,72 +802,96 @@
 
             <!-- Enlaces rápidos -->
             <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Enlaces</h4>
+                <h3 class="text-h3 font-semibold text-white mb-4">Enlaces</h3>
                 <ul class="space-y-2">
-                    <li><a href="#inicio" class="hover:text-primary-500 transition">Inicio</a></li>
-                    <li><a href="#nosotros" class="hover:text-primary-500 transition">Nosotros</a></li>
-                    <li><a href="#programas" class="hover:text-primary-500 transition">Programas</a></li>
-                    <li><a href="#galeria" class="hover:text-primary-500 transition">Galería</a></li>
-                    <li><a href="#donaciones" class="hover:text-primary-500 transition">Donaciones</a></li>
-                    <li><a href="#contacto" class="hover:text-primary-500 transition">Contacto</a></li>
+                    <li><a href="#inicio" class="text-small hover:text-accent-500 transition">Inicio</a></li>
+                    <li><a href="#nosotros" class="text-small hover:text-accent-500 transition">Nosotros</a></li>
+                    <li><a href="#programas" class="text-small hover:text-accent-500 transition">Programas</a></li>
+                    <li><a href="#memorias" class="text-small hover:text-accent-500 transition">Memorias</a></li>
+                    <li><a href="#donaciones" class="text-small hover:text-accent-500 transition">Donaciones</a></li>
+                    <li><a href="#contacto" class="text-small hover:text-accent-500 transition">Contacto</a></li>
                 </ul>
             </div>
 
             <!-- Contacto -->
             <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Contacto</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><i class="fa-solid fa-location-dot mr-2 text-primary-500"></i> PARCELA F-4, SECTOR EL OLIVAR
-                    </li>
-                    <li><i class="fa-solid fa-phone mr-2 text-primary-500"></i> 01 4680405</li>
-                    <li><i class="fa-solid fa-mobile-screen-button mr-2 text-primary-500"></i> (+51) 998-705-600</li>
-                    <li><i class="fa-solid fa-envelope mr-2 text-primary-500"></i> info@sinergiainfancia.org</li>
+                <h3 class="text-h3 font-semibold text-white mb-4">Contacto</h3>
+                <ul class="space-y-2 text-small">
+                    <li><i class="fa-solid fa-location-dot mr-2 text-accent-500"></i> PARCELA F-4, SECTOR EL OLIVAR</li>
+                    <li><i class="fa-solid fa-phone mr-2 text-accent-500"></i> 01 4680405</li>
+                    <li><i class="fa-solid fa-mobile-screen-button mr-2 text-accent-500"></i> (+51) 998-705-600</li>
+                    <li><i class="fa-solid fa-envelope mr-2 text-accent-500"></i> info@sinergiainfancia.org</li>
                 </ul>
             </div>
 
             <!-- Redes sociales -->
             <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Síguenos</h4>
+                <h3 class="text-h3 font-semibold text-white mb-4">Síguenos</h3>
                 <div class="flex space-x-4 text-2xl">
                     <a href="https://www.facebook.com/sinergiaporlainfanciaperu" target="_blank"
-                        class="hover:text-primary-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                        class="hover:text-accent-500 transition"><i class="fa-brands fa-facebook icon-pulse"></i></a>
                     <a href="https://www.instagram.com/sinergiaporlainfanciaperu/" target="_blank"
-                        class="hover:text-primary-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                        class="hover:text-accent-500 transition"><i class="fa-brands fa-instagram icon-pulse"></i></a>
                     <a href="https://api.whatsapp.com/send?phone=51998705600" target="_blank"
-                        class="hover:text-primary-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                        class="hover:text-accent-500 transition"><i class="fa-brands fa-whatsapp icon-pulse"></i></a>
                 </div>
             </div>
         </div>
 
         <!-- Separador -->
-        <div class="border-t border-gray-700 mt-12 pt-6 text-center">
-            <p class="text-sm text-gray-400">
+        <div class="border-t border-neutral-700 mt-12 pt-6 text-center">
+            <p class="text-small text-neutral-400">
                 &copy; 2025 Sinergia por la Infancia. Todos los derechos reservados. ❤️
             </p>
         </div>
     </footer>
 
+
+    <!-- Scripts -->
     <script>
 
-        // Toggle nav con overlay y scroll to top
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById("scroll-progress").style.width = progress + "%";
+        });
+
+        const scrollBtn = document.getElementById("scrollTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                scrollBtn.classList.remove("hidden");
+            } else {
+                scrollBtn.classList.add("hidden");
+            }
+        });
+
+        scrollBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // ============================
+        // Toggle menú móvil con overlay
+        // ============================
         const menuBtn = document.getElementById("menu-btn");
         const mobileMenu = document.getElementById("mobile-menu");
         const overlay = document.getElementById("mobile-overlay");
 
         menuBtn.addEventListener("click", () => {
-            // Scroll al inicio en móvil
+            // Scroll al inicio al abrir menú en móvil
             window.scrollTo({ top: 0, behavior: "smooth" });
 
             // Mostrar/ocultar menú
             mobileMenu.classList.toggle("hidden");
             overlay.classList.toggle("hidden");
 
+            // Cambiar ícono
             const icon = menuBtn.querySelector("i");
             icon.classList.toggle("fa-bars");
             icon.classList.toggle("fa-xmark");
         });
 
-        // Cerrar menú al hacer clic en un enlace o en el overlay
+        // Cerrar menú al hacer clic en enlace u overlay
         document.querySelectorAll("#mobile-menu a, #mobile-overlay").forEach(el => {
             el.addEventListener("click", () => {
                 mobileMenu.classList.add("hidden");
@@ -829,189 +903,19 @@
             });
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu after clicking
-                mobileNav.classList.add('hidden');
-            });
-        });
-
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.backdropFilter = 'none';
-            }
-        });
-
-        // Gallery modal functions
-        function openModal(description, imageUrl) {
-            const modal = document.getElementById('imageModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            const modalImage = document.getElementById('modalImage');
-
-            modalTitle.textContent = 'Momento Especial';
-            modalContent.textContent = description;
-            modalImage.src = imageUrl;
-            modalImage.alt = description;
-            modal.classList.remove('hidden');
-
-            // Prevent body scroll when modal is open
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Animación de contadores
-        const counters = document.querySelectorAll(".counter");
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute("data-target");
-                const count = +counter.innerText;
-                const increment = target / 100;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 40);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        });
-
-        // Animación de entrada al hacer scroll
-        const revealElements = document.querySelectorAll(".reveal");
-
-        const revealOnScroll = () => {
-            const triggerBottom = window.innerHeight * 0.85;
-
-            revealElements.forEach((el) => {
-                const boxTop = el.getBoundingClientRect().top;
-
-                if (boxTop < triggerBottom) {
-                    el.classList.add("opacity-100", "translate-y-0");
-                    el.classList.remove("opacity-0", "translate-y-6");
-                }
-            });
-        };
-
-        window.addEventListener("scroll", revealOnScroll);
-        revealOnScroll(); // ejecutar al cargar
-
-        // Copiar texto al portapapeles
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert("✅ Copiado al portapapeles: " + text);
-            });
-        }
-
-        // Modal QR
-        function openQR(title, src) {
-            document.getElementById("qrTitle").innerText = title;
-            document.getElementById("qrImage").src = src;
-            document.getElementById("qrModal").classList.remove("hidden");
-        }
-
-        function closeQR() {
-            document.getElementById("qrModal").classList.add("hidden");
-        }
-
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.add('hidden');
-
-            // Restore body scroll
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('imageModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Contact form submission
-        function submitForm(event) {
-            event.preventDefault();
-
-            // Simple form validation and success message
-            const formData = new FormData(event.target);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-
-            if (name && email && message) {
-                // Show success message
-                alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo muy pronto. 💝');
-                event.target.reset();
-            } else {
-                alert('Por favor completa todos los campos obligatorios.');
-            }
-        }
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for scroll animations
-        document.addEventListener('DOMContentLoaded', () => {
-            const animateElements = document.querySelectorAll('.bg-white.rounded-2xl, .aspect-square, .bg-white.bg-opacity-10');
-            animateElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'all 0.6s ease-out';
-                observer.observe(el);
-            });
-        });
-
-        // Add floating animation to hero elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const floatingElements = document.querySelectorAll('.animate-float');
-            floatingElements.forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.5}s`;
-            });
-        });
-
-        // Galería
+        // ============================
+        // Galería de imágenes
+        // ============================
         const images = [
-            "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/484402214_966849942239874_61018923555591501_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGDn0JvCID0GLb30l6krNnJjXA8KGix7uyNcDwoaLHu7AcoU6dXV0MsT9KBrOFT1VqoYa5A-VswYfQHGx2TDVQd&_nc_ohc=8SBWhzIo9BcQ7kNvwE1PdUd&_nc_oc=AdnpICYFyAooD9CTWyAgncnmZbdBAOEYg_UezjiZ_NrCZ6Neb07TbOUXJVtUumPgQ_0&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=8pSKef6UsKefewagcft97A&oh=00_AfaDfOCmGJy2V20QO7APT-IuUPe6o60Hy-OwqiugrxCEKA&oe=68D2687E",
-            "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/536257471_1084554733802727_5113225264434408693_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEvFQaOeCT1gX8Jdf-Aa_zsWp2_rEVnlAdanb-sRWeUB6k9o1LEBMPgSu-TlNFqy0TI-FD06fLqT_WpiyDrQetX&_nc_ohc=XPYBhwfAKIgQ7kNvwGs-2xl&_nc_oc=AdkMXphVJN5bcAYdbZAPpjoAqz_OTlmh7tco7OGFaV9OagsCRle_cqhXQNOM9YrHCTE&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=_z5tC0R4OL9PiIMWS6Uwwg&oh=00_Afap0fBOzf2DeFy6Bb82HnlHYZjDJUHRNeLZ2Vw8G2jmEA&oe=68D2D472",
-            "https://scontent.flim38-1.fna.fbcdn.net/v/t39.30808-6/537007066_1084561287135405_475052646262747417_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeHnQDeMqYBfq-O_PBfNR5kEsmJhSk9apEyyYmFKT1qkTASDCOfXBlykejrwgf4bS1ukeqKe87xEBNMF5XBX8dzJ&_nc_ohc=lcqgPCFNG6IQ7kNvwE3bKjD&_nc_oc=AdkXHhZ3xPayzvcJV-LtrT_4vFgfArpS_HdknRy7EioQtaahbZZPjfRQZeuJnRcEZ4M&_nc_zt=23&_nc_ht=scontent.flim38-1.fna&_nc_gid=h2s4HWtYKIPtbakoe_ouMA&oh=00_AfbuSo2mvheQa_i0CXf-kKbuOm3lGn_7MPCTkIwirAEt4A&oe=68D2D901"
-            // Agregar más si se necesitan
+            "src/galeria/gallery-1.jpg",
+            "src/galeria/gallery-2.jpg",
+            "src/galeria/gallery-3.jpg",
+            "src/galeria/gallery-4.jpg",
+            "src/galeria/gallery-5.jpg",
+            "src/galeria/gallery-6.jpg",
+            "src/galeria/gallery-7.jpg",
+            "src/galeria/gallery-8.jpg"
         ];
-
         let currentIndex = 0;
 
         function openModal(index) {
@@ -1039,12 +943,36 @@
         // Navegación con teclado
         document.addEventListener("keydown", (e) => {
             if (document.getElementById("galleryModal").classList.contains("hidden")) return;
-
             if (e.key === "ArrowRight") nextImage();
             if (e.key === "ArrowLeft") prevImage();
             if (e.key === "Escape") closeModal();
         });
 
+        // ============================
+        // Copiar texto al portapapeles
+        // ============================
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("✅ Copiado al portapapeles: " + text);
+            });
+        }
+
+        // ============================
+        // Modal QR
+        // ============================
+        function openQR(title, src) {
+            document.getElementById("qrTitle").innerText = title;
+            document.getElementById("qrImage").src = src;
+            document.getElementById("qrModal").classList.remove("hidden");
+        }
+
+        function closeQR() {
+            document.getElementById("qrModal").classList.add("hidden");
+        }
+
+        // ============================
+        // Formulario de contacto
+        // ============================
         document.getElementById("contactForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
@@ -1052,14 +980,15 @@
             const messageBox = document.getElementById("formMessage");
             let isValid = true;
 
+            // Validación simple
             form.querySelectorAll("input[required], textarea[required]").forEach(input => {
                 if (!input.value.trim()) {
-                    input.classList.remove("border-gray-200", "focus:border-primary-600");
+                    input.classList.remove("border-neutral-200", "focus:border-primary-600");
                     input.classList.add("border-red-500", "focus:border-red-500", "focus:ring-red-200");
                     isValid = false;
                 } else {
                     input.classList.remove("border-red-500", "focus:border-red-500", "focus:ring-red-200");
-                    input.classList.add("border-gray-200", "focus:border-primary-600", "focus:ring-primary-200");
+                    input.classList.add("border-neutral-200", "focus:border-primary-600", "focus:ring-primary-200");
                 }
             });
 
@@ -1076,11 +1005,22 @@
                 messageBox.className = "mt-4 text-center text-green-600 font-bold";
                 messageBox.classList.remove("hidden");
                 form.reset();
-            }, 1000);
+            }, 800);
         });
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate-fade-in-up");
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
     </script>
+
 </body>
 
 </html>
